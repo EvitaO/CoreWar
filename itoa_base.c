@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:26:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/01 19:51:16 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/02 19:07:16 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,52 +58,52 @@ int					ft_atoi2(const char *str)
 
 static int  count_n(long long n, int base)
 {
-    int     cnt;
+	int     cnt;
 
-    cnt = 1;
-    if (n < 0)
-    {
-        cnt++;
-        n = n * -1;
-    }
-    while (n % base != n)
-    {
-        cnt++;
-        n = n / base;
-    }
-    return (cnt);
+	cnt = 1;
+	if (n < 0)
+	{
+		cnt++;
+		n = n * -1;
+	}
+	while (n % base != n)
+	{
+		cnt++;
+		n = n / base;
+	}
+	return (cnt);
 }
 
 static char        *make_str(long long n, int base, int cnt, char *str)
 {
-    int     i;
+	int     i;
 
-    i = 0;
-    if (n < 0)
-    {
-        str[i] = '-';
-        i++;
-        n = n * -1;
-    }
-    while (cnt >= i)
-    {
-        if (n % base > 9)
-            str[cnt] = (n % base) + 87;
-        else
-            str[cnt] = (n % base) + '0';
-        cnt--;
-        n = n / base;
-    }
-    return (str);
+	i = 0;
+	if (n < 0)
+	{
+		str[i] = '-';
+		i++;
+		n = n * -1;
+	}
+	while (cnt >= i)
+	{
+		if (n % base > 9)
+			str[cnt] = (n % base) + 87;
+		else
+			str[cnt] = (n % base) + '0';
+		cnt--;
+		n = n / base;
+	}
+	return (str);
 }
 
 char        *itoa_base(unsigned long long nbr, int base)
 {
-    int     cnt;
-    char    *str;
+	int     cnt;
+	char    *str;
 
-    cnt = count_n(nbr, base);
-    str = (char *)ft_memalloc(cnt + 1);
-    str[cnt] = '\0';
-    return (make_str(nbr, base, cnt - 1, str));
+	cnt = count_n(nbr, base);
+	str = (char *)ft_memalloc(cnt + 1);
+	str[cnt] = '\0';
+	return (make_str(nbr, base, cnt - 1, str));
 }

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/01 20:59:06 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/02 17:26:40 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct      s_player
     struct s_player *next;
 }                   t_player;
 
-void                ft_nflag(t_player *players, int argc);
+void                ft_nflag(t_player *players);
 void                read_args(char **argv, t_player *players);
 void                check_arg(int argc, char **argv, t_player *players);
 char                *itoa_base(unsigned long long nbr, int base);
