@@ -6,13 +6,13 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 19:42:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 13:23:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/03 14:13:53 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void		get_null_bytes(t_player *players, int fd)
+void		get_null_bytes(int fd)
 {
 	int				i;
 	unsigned int	j;
@@ -31,7 +31,7 @@ void		get_name_comment(t_player *players, int fd)
 	i = read(fd, players->name, PROG_NAME_LENGTH);
 	if (i < PROG_NAME_LENGTH)
 		exit(ft_printf("PROg name is wrong\n"));
-	get_null_bytes(players, fd);
+	get_null_bytes(fd);
 	i = read(fd, &j, 4);
 	if (i < 4)
 		exit(ft_printf("Error exec code size\n"));
@@ -44,9 +44,8 @@ void		get_name_comment(t_player *players, int fd)
 void		get_code_size(t_player *players, int fd)
 {
 	int				i;
-	unsigned int	j;
 
-	players->code = ft_strnew(CHAMP_MAX_SIZE + 1);
+	players->code = (unsigned char *)ft_strnew(CHAMP_MAX_SIZE + 1);
 	i = read(fd, players->code, CHAMP_MAX_SIZE + 5);
 	if (i > CHAMP_MAX_SIZE)
 		exit(ft_printf("exec code size is to big\n"));
@@ -64,7 +63,8 @@ void        get_data(int fd, t_player *players)
 	if (i < 4)
 		exit(ft_printf("MAgic header error\n"));
 	str = itoa_base(j, 16);
-	str2 = itoa_base(COREWAR_EXEC_MAGIC, 16);;
+	str2 = itoa_base(COREWAR_EXEC_MAGIC, 16);
+	ft_printf("%s\n", str);
 	str[6] = '\0';
 	str = str_rev_by_2(str);
 	if (ft_strcmp(str, str2) != 0)
@@ -72,7 +72,7 @@ void        get_data(int fd, t_player *players)
 	free(str);
 	free(str2);
 	get_name_comment(players, fd);
-	get_null_bytes(players, fd);
+	get_null_bytes(fd);
 	get_code_size(players, fd);
 }
 

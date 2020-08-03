@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/02 19:11:40 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/08/03 14:15:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,19 @@ static void  check_nflag(t_player *players, char *arg, int argc, int *n)
 		exit(ft_printf("incorrect nflag format\n"));
 }
 
+void		free_arr(char **name)
+{
+	int		i;
+
+	i = 0;
+	while (name[i])
+	{
+		free(name[i]);
+		i++;
+	}
+	free(name);
+}
+
 void        check_arg(int argc, char **argv, t_player *players)
 {
 	int         i;
@@ -75,6 +88,7 @@ void        check_arg(int argc, char **argv, t_player *players)
 				give_id(players, name, n, i);
 				if (i + 1 <= pl)
 					add_node(&players);
+				free_arr(name);
 			}
 			else
 				ft_printf("arg is not a '.cor' file\n");
