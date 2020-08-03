@@ -6,15 +6,15 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/08/02 17:30:44 by eovertoo      ########   odam.nl          #
+#    Updated: 2020/08/03 13:21:46 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = vm
 
-SRC =  main.c change_id.c check_args.c itoa_base.c reading.c
+SRC =  main.c change_id.c check_args.c itoa_base.c reading.c intro.c str_rev_by_2.c
 
-OBJ =  main.o change_id.o check_args.o itoa_base.o reading.o
+OBJ =  main.o change_id.o check_args.o itoa_base.o reading.o intro.o str_rev_by_2.o
 
 INC = vm.h
 
