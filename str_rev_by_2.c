@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/03 13:20:25 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 13:21:04 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/03 14:18:42 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char        *str_rev_by_2(char *str)
 		i = i + 2;
 		j = j - 2;
 	}
+	free(str);
 	return (cp);
 }
