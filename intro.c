@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/03 13:02:30 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 13:04:53 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/06 17:50:22 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void            intro_players(t_player *players)
     while (players)
 	{
 		//ft_printf("File is %s.cor\n\n", players->fname);
-		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", players->id, players->size, players->name, players->comment);
+		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", players->id, players->data->prog_size, players->data->prog_name, players->data->comment);
 		players = players->next;
 	}
 }

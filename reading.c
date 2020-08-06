@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 19:42:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 14:13:53 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/06 18:06:51 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ void		get_name_comment(t_player *players, int fd)
 	int				i;
 	unsigned int	j;
 
-	players->name = ft_strnew(PROG_NAME_LENGTH);
-	i = read(fd, players->name, PROG_NAME_LENGTH);
+	i = read(fd, players->data->prog_name, PROG_NAME_LENGTH);
 	if (i < PROG_NAME_LENGTH)
 		exit(ft_printf("PROg name is wrong\n"));
 	get_null_bytes(fd);
 	i = read(fd, &j, 4);
 	if (i < 4)
 		exit(ft_printf("Error exec code size\n"));
-	players->comment = ft_strnew(COMMENT_LENGTH);
-	i = read(fd, players->comment, COMMENT_LENGTH);
+	i = read(fd, players->data->comment, COMMENT_LENGTH);
 	if (i < COMMENT_LENGTH)
 		exit(ft_printf("Error comment length\n"));
 }
@@ -49,20 +47,19 @@ void		get_code_size(t_player *players, int fd)
 	i = read(fd, players->code, CHAMP_MAX_SIZE + 5);
 	if (i > CHAMP_MAX_SIZE)
 		exit(ft_printf("exec code size is to big\n"));
-	players->size = i;
+	players->data->prog_size = i;
 }
 
 void        get_data(int fd, t_player *players)
 {
 	int             i;
-	unsigned int j;
 	char            *str;
 	char            *str2;
 
-	i = read(fd, &j, 4);
+	i = read(fd, &players->data->magic, 4);
 	if (i < 4)
-		exit(ft_printf("MAgic header error\n"));
-	str = itoa_base(j, 16);
+		exit(ft_printf("MAgic header error	%i	%i\n", i));
+	str = itoa_base(players->data->magic, 16);
 	str2 = itoa_base(COREWAR_EXEC_MAGIC, 16);
 	ft_printf("%s\n", str);
 	str[6] = '\0';
@@ -90,5 +87,4 @@ void        read_args(char **argv, t_player *players)
 	get_data(fd, players);    
 	while (players->prev)
 		players = players->prev;
-	intro_players(players);
 }

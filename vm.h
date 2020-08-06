@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 13:21:16 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/06 17:50:38 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ typedef struct      s_player
 {
     int             id;
     char            *fname;
-    char            *name;
-    char            *comment;
+    header_t        *data;
     unsigned char   *code;
-    int             size;
     int             n_flag;
     int             arg_n;
+    int             cursor;
     struct s_player *prev;
     struct s_player *next;
 }                   t_player;
