@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 19:42:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/06 18:06:51 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/09 13:18:42 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ void		get_code_size(t_player *players, int fd)
 	int				i;
 
 	players->code = (unsigned char *)ft_strnew(CHAMP_MAX_SIZE + 1);
-	i = read(fd, players->code, CHAMP_MAX_SIZE + 5);
+	i = read(fd, players->code, CHAMP_MAX_SIZE + 1);
 	if (i > CHAMP_MAX_SIZE)
 		exit(ft_printf("exec code size is to big\n"));
 	players->data->prog_size = i;
 }
 
-void        get_data(int fd, t_player *players)
+void		get_data(int fd, t_player *players)
 {
-	int             i;
-	char            *str;
-	char            *str2;
+	int			i;
+	char		*str;
+	char		*str2;
 
 	i = read(fd, &players->data->magic, 4);
 	if (i < 4)
@@ -73,18 +73,18 @@ void        get_data(int fd, t_player *players)
 	get_code_size(players, fd);
 }
 
-void        read_args(char **argv, t_player *players)
+void		read_args(char **argv, t_player *players)
 {
-	int     fd;
+	int		fd;
 
 	while (players->next)
 	{
 		fd = open(argv[players->arg_n], O_RDONLY);
-		get_data(fd, players);    
+		get_data(fd, players);
 		players = players->next;
 	}
 	fd = open(argv[players->arg_n], O_RDONLY);
-	get_data(fd, players);    
+	get_data(fd, players);
 	while (players->prev)
 		players = players->prev;
 }

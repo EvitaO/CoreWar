@@ -6,15 +6,17 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/08/03 13:21:46 by anonymous     ########   odam.nl          #
+#    Updated: 2020/08/09 16:13:04 by eovertoo      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = vm
 
-SRC =  main.c change_id.c check_args.c itoa_base.c reading.c intro.c str_rev_by_2.c
+SRC =  main.c change_id.c check_args.c itoa_base.c reading.c intro.c str_rev_by_2.c\
+		game_setup.c game_set_par.c set_cursors.c 
 
-OBJ =  main.o change_id.o check_args.o itoa_base.o reading.o intro.o str_rev_by_2.o
+OBJ =  main.o change_id.o check_args.o itoa_base.o reading.o intro.o str_rev_by_2.o\
+		game_setup.o game_set_par.o set_cursors.o
 
 INC = vm.h
 
