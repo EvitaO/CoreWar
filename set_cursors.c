@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/09 16:16:32 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/08/09 16:53:23 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,27 @@
 //     struct s_cursors    *next;
 //     struct s_cursors    *prev;
 
+void            add_cursor(t_cursors **cursor)
+{
+    (*cursor)->prev = (t_cursors *)ft_memalloc(sizeof(t_cursors));
+    (*cursor)->prev->next = *cursor;
+    *cursor = (*cursor)->prev;
+}
+
 void            set_cursors(t_cursors *cursors, t_player *players)
 {
     while (players->next)
     {
-        ft_printf("%s   %i\n", players->data->prog_name, players->id);
         cursors->pos = players->cursor;
-		cursors->id = players->id;
+	    cursors->id = players->id;
+        add_cursor(&cursors);
         players = players->next;
     }
-    ft_printf("%s   %i\n", players->data->prog_name, players->id);
+    cursors->pos = players->cursor;
+	cursors->id = players->id;
+    // while (cursors)
+    // {
+    //     ft_printf("%i   %i\n", cursors->pos, cursors->id);
+    //     cursors = cursors->next;
+    // }
 }

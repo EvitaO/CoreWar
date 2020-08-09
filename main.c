@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/09 15:45:25 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/08/09 18:00:43 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int			main(int argc, char **argv)
 	read_args(argv, players);
 	intro_players(players);
 	game_set_par(players);
+	free_players(players);
 	return (0);
 }
