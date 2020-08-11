@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 14:58:08 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/09 15:48:57 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/08/11 13:52:05 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,28 @@ int			    count_players(t_player *players)
 	int		cnt;
 
 	cnt = 1;
-	while (players->next)
+	if (players->next)
 	{
-		players = players->next;
-		cnt++;
+		while (players->next)
+		{
+			players = players->next;
+			cnt++;
+		}
+		while (players->prev)
+			players = players->prev;
+		return (cnt);
 	}
-	while (players->prev)
-		players = players->prev;
+	if (players->prev)
+	{
+		while (players->prev)
+		{
+			players = players->prev;
+			cnt++;
+		}
+		while (players->next)
+			players = players->next;
+		return (cnt);
+	}
 	return (cnt);
 }
 

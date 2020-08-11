@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/06 18:08:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/10 20:01:41 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static void        give_id(t_player *players, char **name, int n , int i)
 	players->arg_n = i;
 }
 
-static void  check_nflag(t_player *players, char *arg, int argc, int *n)
+static void  check_nflag(t_player *players, char *arg, int *n)
 {
-	if (ft_isdigit(arg[0]) == 1 && *n == 0)
+	if (ft_isdigit(arg[0]) == 1)
 	{
 		players->n_flag = ft_atoi2(arg);
-		if (players->n_flag <= 0 || players->n_flag > argc - 3)
+		if (players->n_flag <= 0)
 			players->n_flag = -1;
-		(*n)++;
+		*n = 1;
 	}
 	else
 		exit(ft_printf("incorrect nflag format\n"));
@@ -76,7 +76,7 @@ void        check_arg(int argc, char **argv, t_player *players)
 	{
 		if (!ft_strcmp(argv[i], "-n"))
 		{
-			check_nflag(players, argv[i + 1], argc, &n);
+			check_nflag(players, argv[i + 1], &n);
 			i++;
 			pl = pl - 2;
 		}
