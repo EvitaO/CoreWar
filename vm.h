@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:53:22 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/14 17:13:07 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ char					*itoa_base(unsigned long long nbr, int base);
 int						ft_atoi2(const char *str);
 char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
+void					usage(void);
+
 
 /*
 **      process n_flag

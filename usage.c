@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   usage.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 17:03:41 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/14 17:03:53 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/14 17:14:02 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int			main(int argc, char **argv)
+void		usage(void)
 {
-	t_player	*players;
-
-	players = (t_player*)ft_memalloc(sizeof(t_player));
-	players->data = (header_t*)ft_memalloc(sizeof(header_t));
-	if (argc < 2 || ft_strcmp(argv[1], "-u") == 0)
-		usage();
-	check_arg(argc, argv, players);
+	ft_printf("Usage: ./corewar [[-n number] champion1.cor] ...\n");
+	ft_printf("		Possible Flags:\n");
+	ft_printf("			-u	: Outputs this usage message\n");
+	ft_printf("			-d N	: Dumps memory after N cycles then exits\n");
 	exit(1);
-	read_args(argv, players);
-	intro_players(players);
-	game_set_par(players);
-	free_players(players);
-	return (0);
 }
