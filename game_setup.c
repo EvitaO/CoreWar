@@ -6,13 +6,28 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 14:58:08 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/11 13:52:05 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/14 16:20:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int			    count_players(t_player *players)
+static int		count_players2(t_player *players)
+{
+	int		cnt;
+
+	cnt = 1;
+	while (players->prev)
+	{
+		players = players->prev;
+		cnt++;
+	}
+	while (players->next)
+		players = players->next;
+	return (cnt);
+}
+
+int				count_players(t_player *players)
 {
 	int		cnt;
 
@@ -29,16 +44,7 @@ int			    count_players(t_player *players)
 		return (cnt);
 	}
 	if (players->prev)
-	{
-		while (players->prev)
-		{
-			players = players->prev;
-			cnt++;
-		}
-		while (players->next)
-			players = players->next;
-		return (cnt);
-	}
+		return (count_players2(players));
 	return (cnt);
 }
 
@@ -56,7 +62,7 @@ static void		give_start_cursor(t_player *plr, int cnt_pl, unsigned char *arn)
 		plr = plr->prev;
 }
 
-void            game_setup(t_player *players, t_game *game_data)
+void			game_setup(t_player *players, t_game *game_data)
 {
 	int				cnt_pl;
 	int				i;

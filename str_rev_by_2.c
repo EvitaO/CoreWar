@@ -6,17 +6,17 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/03 13:20:25 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 14:18:42 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/14 16:10:40 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-char        *str_rev_by_2(char *str)
+char		*str_rev_by_2(char *str)
 {
-	int     i;
-	int     j;
-	char    *cp;
+	int		i;
+	int		j;
+	char	*cp;
 
 	cp = ft_strdup(str);
 	i = 0;

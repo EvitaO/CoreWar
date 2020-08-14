@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:26:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/03 12:36:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/14 16:14:57 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int					ft_atoi2(const char *str)
 	return (sign * res);
 }
 
-static int  count_n(long long n, int base)
+static int			count_n(long long n, int base)
 {
-	int     cnt;
+	int		cnt;
 
 	cnt = 1;
 	if (n < 0)
@@ -74,9 +74,9 @@ static int  count_n(long long n, int base)
 	return (cnt);
 }
 
-static char        *make_str(long long n, int base, int cnt, char *str)
+static char			*make_str(long long n, int base, int cnt, char *str)
 {
-	int     i;
+	int		i;
 
 	i = 0;
 	if (n < 0)
@@ -97,10 +97,10 @@ static char        *make_str(long long n, int base, int cnt, char *str)
 	return (str);
 }
 
-char        *itoa_base(unsigned long long nbr, int base)
+char				*itoa_base(unsigned long long nbr, int base)
 {
-	int     cnt;
-	char    *str;
+	int		cnt;
+	char	*str;
 
 	cnt = count_n(nbr, base);
 	str = (char *)ft_memalloc(cnt + 1);

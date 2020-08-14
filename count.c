@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   count.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/12 09:43:11 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/12 09:38:57 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/14 16:23:20 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int			main(int argc, char **argv)
+int			count_args(char **argv, int argc)
 {
-	t_player	*players;
+	int		i;
+	int		cnt;
+	char	*tmp;
 
-	players = (t_player*)ft_memalloc(sizeof(t_player));
-	players->data = (header_t*)ft_memalloc(sizeof(header_t));
-	if (argc < 2)
-		ft_printf("Not enough arguments\n");
-	check_arg(argc, argv, players);
-	exit(1);
-	read_args(argv, players);
-	intro_players(players);
-	game_set_par(players);
-	free_players(players);
-	return (0);
+	i = 0;
+	cnt = 0;
+	while (i < argc)
+	{
+		tmp = ft_strstr(argv[i], ".cor\0");
+		if (tmp != NULL)
+			cnt++;
+		i++;
+	}
+	return (cnt);
 }
