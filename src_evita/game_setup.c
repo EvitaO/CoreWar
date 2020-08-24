@@ -6,11 +6,11 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 14:58:08 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/14 16:20:52 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:24:30 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 static int		count_players2(t_player *players)
 {

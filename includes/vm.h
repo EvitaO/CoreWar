@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:01:55 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:23:26 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VM_H
 
 # include "op.h"
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 # include <fcntl.h>
 
 typedef struct			s_player

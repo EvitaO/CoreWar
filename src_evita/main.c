@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 17:03:41 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:25:22 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 int			main(int argc, char **argv)
 {

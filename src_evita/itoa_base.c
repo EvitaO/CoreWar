@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:26:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:14:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:25:27 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 static long long	loop_str(const char *str, int i)
 {

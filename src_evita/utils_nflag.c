@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 17:00:24 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:09:04 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:25:50 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 static int		check(t_player **players)
 {

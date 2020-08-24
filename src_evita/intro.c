@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   count.c                                            :+:    :+:            */
+/*   intro.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/12 09:38:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 17:02:40 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/03 13:02:30 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/24 14:24:22 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
-int			count_args(char **argv, int argc)
+void			intro_players(t_player *pl)
 {
-	int		i;
-	int		cnt;
-	char	*tmp;
-
-	i = 0;
-	cnt = 0;
-	while (i < argc)
+	ft_printf("Introducing contestants...\n");
+	while (pl)
 	{
-		tmp = ft_strstr(argv[i], ".cor\0");
-		if (tmp != NULL)
-			cnt++;
-		i++;
+		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n",\
+		pl->id, pl->data->prog_size, pl->data->prog_name, pl->data->comment);
+		pl = pl->next;
 	}
-	return (cnt);
 }

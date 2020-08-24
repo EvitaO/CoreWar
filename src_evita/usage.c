@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 17:03:53 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 17:14:02 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:25:57 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 void		usage(void)
 {

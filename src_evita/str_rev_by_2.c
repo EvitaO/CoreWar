@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   intro.c                                            :+:    :+:            */
+/*   str_rev_by_2.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/03 13:02:30 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:17:06 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/03 13:20:25 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/24 14:26:02 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
-void			intro_players(t_player *pl)
+char		*str_rev_by_2(char *str)
 {
-	ft_printf("Introducing contestants...\n");
-	while (pl)
+	int		i;
+	int		j;
+	char	*cp;
+
+	cp = ft_strdup(str);
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (j >= 0)
 	{
-		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n",\
-		pl->id, pl->data->prog_size, pl->data->prog_name, pl->data->comment);
-		pl = pl->next;
+		cp[i + 1] = str[j];
+		cp[i] = str[j - 1];
+		i = i + 2;
+		j = j - 2;
 	}
+	free(str);
+	return (cp);
 }

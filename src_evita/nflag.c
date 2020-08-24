@@ -6,16 +6,15 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:42:47 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:28:02 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 static void			proces_nflag(t_player *players, int n, int max_pl)
 {
 	int		arr[max_pl];
-	int		cnt;
 
 	set_arr_m1(max_pl, arr);
 	arr[n] = players->arg_n;

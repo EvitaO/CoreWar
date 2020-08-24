@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 15:52:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:06:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:25:46 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 static int		get_empty_index(t_player *players, int *arr, int max_pl)
 {

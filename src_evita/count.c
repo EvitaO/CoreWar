@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   str_rev_by_2.c                                     :+:    :+:            */
+/*   count.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/03 13:20:25 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 16:10:40 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/12 09:38:57 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/24 14:24:17 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
-char		*str_rev_by_2(char *str)
+int			count_args(char **argv, int argc)
 {
 	int		i;
-	int		j;
-	char	*cp;
+	int		cnt;
+	char	*tmp;
 
-	cp = ft_strdup(str);
 	i = 0;
-	j = ft_strlen(str) - 1;
-	while (j >= 0)
+	cnt = 0;
+	while (i < argc)
 	{
-		cp[i + 1] = str[j];
-		cp[i] = str[j - 1];
-		i = i + 2;
-		j = j - 2;
+		tmp = ft_strstr(argv[i], ".cor\0");
+		if (tmp != NULL)
+			cnt++;
+		i++;
 	}
-	free(str);
-	return (cp);
+	return (cnt);
 }

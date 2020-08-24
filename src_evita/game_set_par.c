@@ -6,11 +6,11 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 15:04:22 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/24 13:47:53 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:24:38 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 void			set_game_data(t_game *game, t_player *players)
 {

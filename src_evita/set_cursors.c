@@ -6,11 +6,11 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/24 13:48:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:26:10 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../includes/vm.h"
 
 void			add_cursor(t_cursor **cursor)
 {
