@@ -6,15 +6,15 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 17:31:35 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/14 16:43:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 13:46:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void			free_cursor(t_cursors *cursors)
+void			free_cursor(t_cursor *cursors)
 {
-	t_cursors	*tmp;
+	t_cursor	*tmp;
 
 	while (cursors)
 	{

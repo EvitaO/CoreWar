@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 17:13:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:01:55 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ typedef struct			s_player
 	struct s_player		*next;
 }						t_player;
 
+typedef struct			s_op
+{
+	char				*name;
+	int					arg_cnt;
+	char				*arg_type[3];
+	int					id;
+	int					cycles;
+	char				*description;
+	int					carry;
+	int					label_size;
+}						t_op;
+
 typedef struct			s_game
 {
 	int					player_l_alive;
@@ -39,20 +51,36 @@ typedef struct			s_game
 	int					checks_cnt;
 	int					players;
 	unsigned char		arena[MEM_SIZE + 1];
+	struct s_op			op_tab[16];
+	struct s_cursor		*c;
 }						t_game;
 
-typedef struct			s_cursors
+typedef struct			s_cursor
 {
-	int					id;
-	int					carry;
-	int					last_live;
-	int					wait_cycles;
-	int					pos;
+	int	 				id;
+	int 				carry;
+	int					c_pos;
+	int					p_pos;
+	int					op;
+	int					live;
+	int					wait;
 	int					jump;
-	//int                 reg[REG_NUMBER];
-	struct s_cursors	*next;
-	struct s_cursors	*prev;
-}						t_cursors;
+	int					reg[REG_NUMBER];
+	struct s_instruction*ins;
+	struct s_cursor		*next;
+	struct s_cursor		*prev;
+}						t_cursor;
+
+typedef struct			s_instruction
+{
+	int op;
+	int	arg1;
+	int arg2;
+	int arg3;
+	int a1_type;
+	int a2_type;
+	int a3_type;
+}						t_instruction;
 
 /*
 **      input saving functions
@@ -85,12 +113,12 @@ void					intro_players(t_player *players);
 void					game_setup(t_player *players, t_game *game_data);
 void					game_set_par(t_player *players);
 int						count_players(t_player *players);
-void					set_cursors(t_cursors *cursors, t_player *players);
+void					set_cursors(t_cursor *cursor, t_player *players);
 
 /*
 **      free functions
 */
-void					free_cursor(t_cursors *cursors);
+void					free_cursor(t_cursor *cursor);
 void					free_players(t_player *players);
 void					free_arr(char **name);
 
