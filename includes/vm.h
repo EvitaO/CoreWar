@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/25 13:07:23 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/25 15:05:57 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct			s_op
 {
 	char				*name;
 	int					arg_cnt;
-	char				*arg_type[3];
+	char				arg_type[3];
 	int					id;
 	int					cycles;
 	char				*description;
@@ -61,8 +61,8 @@ typedef struct			s_game
 
 typedef struct			s_cursor
 {
-	int	 				id;
-	int 				carry;
+	int					id;
+	int					carry;
 	int					c_pos;
 	int					p_pos;
 	int					op;
@@ -97,7 +97,6 @@ char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
 void					usage(void);
 
-
 /*
 **      process n_flag
 */
@@ -130,7 +129,6 @@ void					free_arr(char **name);
 **		game loop functions
 */
 
-
 void					game_loop(t_game *cw);
 void					kill_cursor(t_game *cw, int id);
 
@@ -141,6 +139,7 @@ void					kill_cursor(t_game *cw, int id);
 void					get_operation(t_cursor *cursor, t_game *cw);
 int						execute_operation(t_cursor *c, t_game *cw);
 t_instruction			*new_instruction(void);
+int						get_pos(int position, int distance);
 
 /*
 **		encoding byte functions

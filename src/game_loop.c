@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/14 11:20:20 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/25 15:09:34 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	end_game(t_game *cw)
 {
 	if (cw)
-		ft_putstrnl("Game over");
+		ft_putendl("Game over");
 	exit(0);
 }
 
