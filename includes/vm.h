@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:23:26 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/25 13:07:23 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,17 @@ typedef struct			s_op
 	int					label_size;
 }						t_op;
 
+extern t_op				g_op_tab[17];
+
 typedef struct			s_game
 {
 	int					player_l_alive;
 	int					cycles_cnt;
 	int					live_cnt;
 	int					cycles_to_die;
+	int					die_cnt;
 	int					checks_cnt;
+	int					last_check;
 	int					players;
 	unsigned char		arena[MEM_SIZE + 1];
 	struct s_op			op_tab[16];
@@ -121,5 +125,28 @@ void					set_cursors(t_cursor *cursor, t_player *players);
 void					free_cursor(t_cursor *cursor);
 void					free_players(t_player *players);
 void					free_arr(char **name);
+
+/*
+**		game loop functions
+*/
+
+
+void					game_loop(t_game *cw);
+void					kill_cursor(t_game *cw, int id);
+
+/*
+**		generic operation functions
+*/
+
+void					get_operation(t_cursor *cursor, t_game *cw);
+int						execute_operation(t_cursor *c, t_game *cw);
+t_instruction			*new_instruction(void);
+
+/*
+**		encoding byte functions
+*/
+
+int						encoding_byte(unsigned char data, t_instruction *ins, int *ret);
+int						size_of_arg(t_instruction ins);
 
 #endif
