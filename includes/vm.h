@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/25 15:05:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/30 16:53:11 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,76 +15,8 @@
 
 # include "op.h"
 # include "../libft/includes/libft.h"
+# include "vm_structs.h"
 # include <fcntl.h>
-
-typedef struct			s_player
-{
-	int					id;
-	char				*fname;
-	header_t			*data;
-	unsigned char		*code;
-	int					n_flag;
-	int					arg_n;
-	int					cursor;
-	struct s_player		*prev;
-	struct s_player		*next;
-}						t_player;
-
-typedef struct			s_op
-{
-	char				*name;
-	int					arg_cnt;
-	char				arg_type[3];
-	int					id;
-	int					cycles;
-	char				*description;
-	int					carry;
-	int					label_size;
-}						t_op;
-
-extern t_op				g_op_tab[17];
-
-typedef struct			s_game
-{
-	int					player_l_alive;
-	int					cycles_cnt;
-	int					live_cnt;
-	int					cycles_to_die;
-	int					die_cnt;
-	int					checks_cnt;
-	int					last_check;
-	int					players;
-	unsigned char		arena[MEM_SIZE + 1];
-	struct s_op			op_tab[16];
-	struct s_cursor		*c;
-}						t_game;
-
-typedef struct			s_cursor
-{
-	int					id;
-	int					carry;
-	int					c_pos;
-	int					p_pos;
-	int					op;
-	int					live;
-	int					wait;
-	int					jump;
-	int					reg[REG_NUMBER];
-	struct s_instruction*ins;
-	struct s_cursor		*next;
-	struct s_cursor		*prev;
-}						t_cursor;
-
-typedef struct			s_instruction
-{
-	int op;
-	int	arg1;
-	int arg2;
-	int arg3;
-	int a1_type;
-	int a2_type;
-	int a3_type;
-}						t_instruction;
 
 /*
 **      input saving functions
@@ -96,6 +28,7 @@ int						ft_atoi2(const char *str);
 char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
 void					usage(void);
+
 
 /*
 **      process n_flag
@@ -128,24 +61,30 @@ void					free_arr(char **name);
 /*
 **		game loop functions
 */
-
 void					game_loop(t_game *cw);
 void					kill_cursor(t_game *cw, int id);
 
 /*
 **		generic operation functions
 */
-
 void					get_operation(t_cursor *cursor, t_game *cw);
-int						execute_operation(t_cursor *c, t_game *cw);
-t_instruction			*new_instruction(void);
+int						execute_operation(t_cursor *c, t_game *cw, t_ops op);
 int						get_pos(int position, int distance);
+t_instruction			*new_instruction(void);
 
 /*
 **		encoding byte functions
 */
-
 int						encoding_byte(unsigned char data, t_instruction *ins, int *ret);
-int						size_of_arg(t_instruction ins);
+int						size_of_arg(t_instruction ins, int arg);
+int						check_registries(t_instruction ins);
+
+/*
+**		operations
+*/
+
+int						live(t_cursor *c, t_game *cw);
+int						ld(t_cursor *c, t_game *cw);
+
 
 #endif
