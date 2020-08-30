@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 15:04:22 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/25 14:27:50 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/24 14:24:38 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void			set_game_data(t_game *game, t_player *players)
 void			game_set_par(t_player *players)
 {
 	t_game		*game_data;
+	t_cursor	*cursors;
 
 	game_data = (t_game *)ft_memalloc(sizeof(t_game));
 	set_game_data(game_data, players);
 	game_setup(players, game_data);
-	game_data->c = (t_cursor *)ft_memalloc(sizeof(t_cursor));
-	set_cursors(game_data->c, players);
-	game_loop(game_data);
-	free_cursor(game_data->c);
+	cursors = (t_cursor *)ft_memalloc(sizeof(t_cursor));
+	set_cursors(cursors, players);
+	free_cursor(cursors);
 	free(game_data);
 }
