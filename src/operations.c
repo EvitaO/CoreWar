@@ -76,6 +76,6 @@ void	get_operation(t_cursor *c, t_game *cw)
 		ins = new_instruction();
 		ins->op = cw->arena[c->c_pos];
 		c->ins = ins;
-		c->wait = g_op_tab[ins->op - 1].cycles;
+		c->wait = g_op_tab[ins->op].cycles;
 	}
 }
