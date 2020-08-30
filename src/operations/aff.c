@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   aff.c                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/28 16:49:31 by anonymous     ########   odam.nl         */
+/*   Created: 2020/08/28 16:36:45 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/08/28 16:55:24 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/vm.h"
+#include "../../includes/vm.h"
 
-int			main(int argc, char **argv)
+void			aff(t_cursor *c, t_game *cw)
 {
-	t_player	*players;
-
-	players = (t_player*)ft_memalloc(sizeof(t_player));
-	players->data = (header_t*)ft_memalloc(sizeof(header_t));
-	if (argc < 2 || ft_strcmp(argv[1], "-u") == 0)
-		usage();
-	check_arg(argc, argv, players);
-	exit(1);
-	read_args(argv, players);
-	intro_players(players);
-	game_set_par(players);
-	free_players(players);
-	return (0);
+	ft_printf("%c", (char)c->ins->arg1);
 }
