@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/30 16:53:11 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/31 12:59:54 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void					add_to_arr(t_player *players, int *arr, int max_pl);
 */
 void					intro_players(t_player *players);
 void					game_setup(t_player *players, t_game *game_data);
-void					game_set_par(t_player *players);
+t_game					*game_set_par(t_player *players);
 int						count_players(t_player *players);
 void					set_cursors(t_cursor *cursor, t_player *players);
 
@@ -61,8 +61,9 @@ void					free_arr(char **name);
 /*
 **		game loop functions
 */
-void					game_loop(t_game *cw);
+int						game_loop(t_game *cw);
 void					kill_cursor(t_game *cw, int id);
+char					*get_winner(t_player *players, int id);
 
 /*
 **		generic operation functions
@@ -82,9 +83,15 @@ int						check_registries(t_instruction ins);
 /*
 **		operations
 */
-
 int						live(t_cursor *c, t_game *cw);
 int						ld(t_cursor *c, t_game *cw);
+
+/*
+**		debug functions
+*/
+void					print_game_data(t_game *data);
+void					print_cursor_data(t_game *data);
+void					print_instruction_data(t_instruction ins);
 
 
 #endif

@@ -15,10 +15,12 @@
 void	kill_cursor(t_game *cw, int id)
 {
 	t_cursor *temp;
+	// int i = 0;
 
 	temp = cw->c;
 	while (temp)
 	{
+		// ft_printf("i = %i\n", i);
 		if (temp->id == id)
 		{
 			if (temp->prev)
@@ -28,6 +30,7 @@ void	kill_cursor(t_game *cw, int id)
 			free(temp);
 			return ;
 		}
+		// i++;
 		temp = temp->next;
 	}
 }

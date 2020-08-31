@@ -6,7 +6,7 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/08/25 14:54:32 by anonymous     ########   odam.nl          #
+#    Updated: 2020/08/31 12:53:16 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,13 @@ NAME = vm
 
 SRC =  main.c utils_nflag.c check_args.c itoa_base.c reading.c intro.c str_rev_by_2.c\
 		game_setup.c game_set_par.c set_cursors.c free.c count.c usage.c utils_nflag2.c\
-		nflag.c game_loop.c cursor.c enc_byte.c new.c utilities.c operations.c op.c
+		nflag.c game_loop.c cursor.c enc_byte.c new.c utilities.c operations.c op.c\
+		live.c
 
 OBJ =  main.o utils_nflag.o check_args.o itoa_base.o reading.o intro.o str_rev_by_2.o\
 		game_setup.o game_set_par.o set_cursors.o free.o count.o usage.o utils_nflag2.o\
-		nflag.o game_loop.o cursor.o enc_byte.o new.o utilities.o operations.o op.o
+		nflag.o game_loop.o cursor.o enc_byte.o new.o utilities.o operations.o op.o\
+		live.o
 
 FLAGS = -Wall -Wextra -Werror
 

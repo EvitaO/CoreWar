@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/30 17:39:16 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/08/31 12:41:03 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int		size_of_arg(t_instruction ins, int arg)
 {
+	//ft_printf("--->reg[%i] = %i\n", arg, ins.arg_type[arg]);
 	if (ins.arg_type[arg] == T_DIR)
-		return (g_op_tab[ins.op].label_size);
+		return (DIR_SIZE);
 	if (ins.arg_type[arg] == T_IND)
 		return (IND_SIZE);
 	if (ins.arg_type[arg] == T_REG)
@@ -56,7 +57,7 @@ int		get_size(t_instruction ins)
 
 int		check_enc_byte(t_instruction ins)
 {
-	if (ins.op > 16)
+	if (ins.op > 16 || ins.op < 1)
 		return (0);
 	if (ins.arg_type[0] != g_op_tab[ins.op].arg_type[0])
 		return (0);
@@ -72,6 +73,7 @@ int		encoding_byte(unsigned char data, t_instruction *ins, int *ret)
 	if (g_op_tab[ins->op].octet == 0)
 	{
 		ins->arg_type[0] = T_DIR;
+		*ret = 1;
 		return (1);
 	}
 	ins->arg_type[0] = (data >> 6) & 3;
