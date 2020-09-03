@@ -14,24 +14,20 @@
 
 int		get_argument(t_game *cw, int size, int pos)
 {
-	int 			i;
-	int 			multiply;
-	unsigned int	ret;
+	int 			p;
+	int				i;
+	int				ret;
+	unsigned char	data[4];
 
-	i = size;
-	multiply = 1;
-	ret = 0;
-	//ft_printf("i:%i, ret:%i, multi:%i\n", i, ret, multiply);
-	while (i)
+	p = size;
+	i = 0;
+	while (i < size)
 	{
-		ret += cw->arena[get_pos(pos, i)] * multiply;
-		if (multiply == 1)
-			multiply = 16;
-		else
-			multiply *= multiply;
-		i--;
-		//ft_printf("i:%i, ret:%i, multi:%i\n", i, ret, multiply);
+		data[i] = cw->arena[get_pos(pos, p)];
+		p--;
+		i++;
 	}
+	ret = *(int*)data;
 	return (ret);
 }
 
@@ -46,29 +42,60 @@ void		collect_arguments(t_cursor *c, t_game *cw)
 	pos = get_pos(pos, size_of_arg(*(c->ins), 1));
 	c->ins->arg3 = get_argument(cw, size_of_arg(*(c->ins), 2), pos);
 	pos = get_pos(pos, size_of_arg(*(c->ins), 2));
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 20, 0, "arg1 = %d, pos = %d", c->ins->arg1, pos);
+		mvwprintw(cw->v->score, 21, 0, "arg2 = %d, pos = %d", c->ins->arg2, pos);
+		mvwprintw(cw->v->score, 22, 0, "arg3 = %d, pos = %d", c->ins->arg3, pos);
+		wrefresh(cw->v->score);
+		sleep(SPEED);
+	}
 }
 
 int		execute_operation(t_cursor *c, t_game *cw, t_ops op)
 {
 	int ret;
+	int t = 0;
 
 	ret = 1;
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 7, 0, "check op-code");
+		v_print_cursor(cw, c, 0);
+	}
 	if (c->op > 16 || c->op < 1)
 		return (1);
-	//ft_printf("Checking encoding byte\n");
-	if (!encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret))
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 7, 0, "check-encoding-byte");
+		v_print_cursor(cw, c, 0);
+		sleep(SPEED);
+	}
+	t = encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret);
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 7, 0, "check-encoding-byte2");
+		v_print_cursor(cw, c, 0);
+		sleep(SPEED);
+	}
+	if (!t)
 		return (ret);
-	//ft_printf("Collect arguments\n");
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 7, 0, "getting arguments");
+		v_print_cursor(cw, c, 0);
+		sleep(SPEED);
+	}
 	collect_arguments(c, cw);
-	//ft_printf("Check registries\n");
 	if (!check_registries(*(c->ins)))
 		return (ret);
-	//ft_printf("Execute operation\n");
-	// ft_printf("cursor->reg1 = %i\n", c->reg[0]);
-	// print_instruction_data(*(c->ins));
+	if (cw->v != NULL)
+	{
+		mvwprintw(cw->v->score, 7, 0, "executing operation");
+		v_print_cursor(cw, c, 0);
+		sleep(SPEED);
+	}
 	op[c->ins->op](c, cw);
-	free(c->ins);
-	c->ins = NULL;
 	return (ret);
 }
 
@@ -76,11 +103,7 @@ void	get_operation(t_cursor *c, t_game *cw)
 {
 	t_instruction	*ins;
 
-	// ft_printf("Getting operation\n");
-	// ft_printf("stats:\n");
-	// ft_printf("pos:%i\n", c->c_pos);
 	c->op = cw->arena[c->c_pos];
-	// ft_printf("op:%i\n", c->op);
 	if (c->op > 16 || c->op < 1)
 		c->wait = 0;
 	else

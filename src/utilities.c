@@ -17,7 +17,7 @@ int		get_pos(int position, int distance)
 	int new_pos;
 
 	new_pos = position + distance;
-	//ft_printf("pos:%i, distance:%i, new_pos:%i\n", position, distance, new_pos);
+	// ft_printf("pos:%i, distance:%i, new_pos:%i\n", position, distance, new_pos);
 	if (new_pos < 0)
 		return (MEM_SIZE + new_pos);
 	return (new_pos % MEM_SIZE);

@@ -1,6 +1,4 @@
-.name		"one
-#bla
-threee"
+.name		"Batman"
 
 .comment	"Jour J"
 

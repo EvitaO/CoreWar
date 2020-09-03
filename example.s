@@ -1,4 +1,4 @@
-.name       "Batman"
-.comment    "This city needs me"
+.name       "Example"
+.comment    "This test needs me"
 
 live %1

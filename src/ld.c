@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/30 16:46:11 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/03 22:24:41 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int		ld(t_cursor *c, t_game *cw)
 		c->carry = 1;
 	else
 		c->carry = 0;
+	return (0);
 }

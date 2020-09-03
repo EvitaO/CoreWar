@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/31 12:59:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/03 23:07:35 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "op.h"
 # include "../libft/includes/libft.h"
 # include "vm_structs.h"
+# include "vm_visualizer.h"
 # include <fcntl.h>
 
 /*
@@ -62,7 +63,7 @@ void					free_arr(char **name);
 **		game loop functions
 */
 int						game_loop(t_game *cw);
-void					kill_cursor(t_game *cw, int id);
+void					kill_cursor(t_game *cw, t_cursor *c);
 char					*get_winner(t_player *players, int id);
 
 /*
@@ -92,6 +93,5 @@ int						ld(t_cursor *c, t_game *cw);
 void					print_game_data(t_game *data);
 void					print_cursor_data(t_game *data);
 void					print_instruction_data(t_instruction ins);
-
 
 #endif
