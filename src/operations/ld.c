@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 22:24:41 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 14:25:14 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/vm.h"
+#include "../../includes/vm.h"
 
 int		ld(t_cursor *c, t_game *cw)
 {

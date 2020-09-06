@@ -59,14 +59,14 @@ void		initialize_operations(t_ops *ops)
 	(*ops)[6] = live;
 	(*ops)[7] = live;
 	(*ops)[8] = live;
-	(*ops)[9] = live;
+	(*ops)[9] = zjmp;
 	(*ops)[10] = live;
-	(*ops)[11] = live;
-	(*ops)[12] = live;
+	(*ops)[11] = sti;
+	(*ops)[12] = op_fork;
 	(*ops)[13] = live;
 	(*ops)[14] = live;
-	(*ops)[15] = live;
-	(*ops)[16] = live;
+	(*ops)[15] = lfork;
+	(*ops)[16] = aff;
 }
 
 int		game_loop(t_game *cw)

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 02:51:19 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 23:10:02 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 15:24:22 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void		v_print_arena(t_game *cw, t_player *p)
 	while (i < 4096)
 	{
 		if (size == 0)
-		{	
+		{
 			pos = (MEM_SIZE / count) * (color - 1);
 			wattron(cw->v->win, COLOR_PAIR(1));
 		}

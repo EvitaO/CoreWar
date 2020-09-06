@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 22:24:20 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 15:28:36 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct			s_game
 	int					die_cnt;
 	int					checks_cnt;
 	int					players;
+	int					aflag;
 	unsigned char		arena[MEM_SIZE + 1];
 	struct s_op			op_tab[16];
 	struct s_cursor		*c;

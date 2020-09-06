@@ -1,4 +1,6 @@
 .name       "Example"
 .comment    "This test needs me"
 
-live %1
+zjmp %0
+zjmp %200
+aff r1

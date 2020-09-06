@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:23:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 15:28:05 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,17 @@ int			str_ending(char *str, char *ending)
 	return (1);
 }
 
-void		check_arg(int argc, char **argv, t_player *players)
+int			check_arg(int argc, char **argv, t_player *players)
 {
 	int			i;
 	char		**name;
 	int			n;
 	int			pl;
+	int			aflag;
 
 	i = 1;
 	n = 0;
+	aflag = 0;
 	pl = count_args(argv, argc);
 	while (i < argc)
 	{
@@ -88,6 +90,8 @@ void		check_arg(int argc, char **argv, t_player *players)
 			add_node(&players, &pl);
 			free_arr(name);
 		}
+		else if (ft_strcmp(argv[i], "-a") == 0)
+			aflag = 1;
 		else
 			exit(ft_printf("arg is not a '.cor' file\n"));
 		i++;
@@ -101,4 +105,5 @@ void		check_arg(int argc, char **argv, t_player *players)
 		players = players->next;
 	}
 	ft_printf("Player %i is %s\n", players->id, players->fname);
+	return (aflag);
 }

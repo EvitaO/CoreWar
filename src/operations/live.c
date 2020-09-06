@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 15:53:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 23:05:46 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 15:35:35 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/vm.h"
+#include "../../includes/vm.h"
 
 int		live(t_cursor *c, t_game *cw)
 {
