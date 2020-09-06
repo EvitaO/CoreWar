@@ -95,6 +95,7 @@ int		execute_operation(t_cursor *c, t_game *cw, t_ops op)
 		v_print_cursor(cw, c, 0);
 		sleep(SPEED);
 	}
+	ft_printf("%i		", c->ins->op);
 	op[c->ins->op](c, cw);
 	return (ret);
 }

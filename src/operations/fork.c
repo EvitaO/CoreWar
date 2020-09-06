@@ -6,14 +6,16 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 16:47:32 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/06 18:19:39 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/vm.h"
 
 /*
-** copy cursor to (c->ins->arg1 % IDX_MOD) + c->c_pos
+**	fork copies the cursor to (c->ins->arg1 % IDX_MOD) + current_position
+**	arg1 is a T_DIR
+**	lfork does the same but without % IDX_MOD
 */
 
 static void	add_cur(t_cursor **c, t_cursor *new)
@@ -25,6 +27,7 @@ static void	add_cur(t_cursor **c, t_cursor *new)
 	new->prev = NULL;
 	new->next = *c;
 	(*c)->prev = new;
+	*c = new;
 }
 
 int			op_fork(t_cursor *c, t_game *cw)

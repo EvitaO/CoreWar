@@ -6,16 +6,15 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 14:52:11 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/06 18:11:18 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/vm.h"
 
 /*
-** zjmp get an index defined by c->ins->arg1
+** zjmp get an index defined by c->ins->arg1 (T_DIR)
 ** if carry == 1 then cursor moves to (c->c_pos + (index % IDX_MOD)) % MEM_SIZE
-** modulo mem_size to make sure c_pos doesnt get bigger then MEM_SIZE
 ** else move cursor 2 bytes
 */
 
