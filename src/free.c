@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 17:31:35 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/08/24 14:24:43 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 13:27:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void			free_players(t_player *players)
 	{
 		tmp = players->next;
 		free(players->data);
-		free(players->fname);
 		free(players->code);
 		free(players);
 		players = tmp;

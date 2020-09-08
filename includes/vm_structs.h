@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/07 14:04:43 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 13:27:18 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct			s_flag
 typedef struct			s_player
 {
 	int					id;
-	char				*fname;
 	header_t			*data;
 	unsigned char		*code;
 	int					n_flag;
