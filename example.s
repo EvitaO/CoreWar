@@ -1,4 +1,4 @@
-.name       "Example"
-.comment    "This test needs me"
+.name		"aff"
+.comment	"aff"
 
-live %1
+aff		r1

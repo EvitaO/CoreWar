@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ld.c                                               :+:    :+:            */
+/*   st.c                                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 14:05:12 by anonymous     ########   odam.nl         */
+/*   Created: 2020/09/08 13:43:40 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 14:29:53 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int		ld(t_cursor *c, t_game *cw)
+int		st(t_cursor *c, t_game *cw)
 {
-	int arg;
 	int pos;
+	int arg;
 
-	if (c->ins->arg_type[0] == T_IND)
+	arg = c->reg[c->ins->arg1];
+	if (c->ins->arg_type[1] == T_REG)
 	{
-		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD);
-		arg = get_argument(cw, 4, pos);
+		c->reg[c->ins->arg2] = arg;
+		return (1);
 	}
 	else
-		arg = c->ins->arg1;
-	c->reg[c->ins->arg2] = arg;
-	if (arg)
-		c->carry = 1;
-	else
-		c->carry = 0;
-	return (0);
+	{
+		pos = get_pos(c->c_pos, c->ins->arg2 % IDX_MOD);
+		write_to_memory(cw, arg, 4, pos);
+	}
+	return (1);
 }

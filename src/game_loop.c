@@ -53,12 +53,12 @@ void		initialize_operations(t_ops *ops)
 {
 	(*ops)[1] = live;
 	(*ops)[2] = ld;
-	(*ops)[3] = live;
-	(*ops)[4] = live;
-	(*ops)[5] = live;
-	(*ops)[6] = live;
-	(*ops)[7] = live;
-	(*ops)[8] = live;
+	(*ops)[3] = st;
+	(*ops)[4] = add;
+	(*ops)[5] = sub;
+	(*ops)[6] = and;
+	(*ops)[7] = or;
+	(*ops)[8] = xor;
 	(*ops)[9] = live;
 	(*ops)[10] = live;
 	(*ops)[11] = live;
