@@ -59,12 +59,12 @@ void		initialize_operations(t_ops *ops)
 	(*ops)[6] = and;
 	(*ops)[7] = or;
 	(*ops)[8] = xor;
-	(*ops)[9] = live;
-	(*ops)[10] = live;
+	(*ops)[9] = zjmp;
+	(*ops)[10] = ldi;
 	(*ops)[11] = sti;
 	(*ops)[12] = op_fork;
-	(*ops)[13] = live;
-	(*ops)[14] = live;
+	(*ops)[13] = lld;
+	(*ops)[14] = lldi;
 	(*ops)[15] = lfork;
 	(*ops)[16] = aff;
 }

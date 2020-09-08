@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 15:51:08 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 18:15:55 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/08 17:11:03 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int				sti(t_cursor *c, t_game *cw)
 	if (c->ins->arg_type[1] == T_REG)
 		c->ins->arg2 = c->reg[c->ins->arg2];
 	else if (c->ins->arg_type[1] == T_IND)
+	{
+		c->ins->arg2 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg2));
 		dst = c->c_pos + ((c->ins->arg2 % IDX_MOD) % MEM_SIZE);
+	}
 	if (c->ins->arg_type[2] == T_REG)
 		c->ins->arg3 = c->reg[c->ins->arg3];
 	if (c->ins->arg_type[1] != T_IND)

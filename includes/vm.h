@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:18:32 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 17:15:49 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ int				        zjmp(t_cursor *c, t_game *cw);
 int				        aff(t_cursor *c, t_game *cw);
 int				        sti(t_cursor *c, t_game *cw);
 int						ldi(t_cursor *c, t_game *cw);
+int						lld(t_cursor *c, t_game *cw);
+int						lldi(t_cursor *c, t_game *cw);
 int						st(t_cursor *c, t_game *cw);
 int						add(t_cursor *c, t_game *cw);
 int						sub(t_cursor *c, t_game *cw);

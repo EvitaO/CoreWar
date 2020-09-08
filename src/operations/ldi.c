@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   ldi.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
+/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/06 18:07:08 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/06 18:47:04 by eovertoo      ########   odam.nl         */
+/*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 17:16:19 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vm.h"
+#include "../includes/vm.h"
 
 /*
 **  ldi takes 3 arguments
@@ -28,29 +28,31 @@
 **  if arg1 == T_IND then the % IDX_MOD is still performed
 */
 
-static int      read_bytes(t_game *cw, int address, int size)
+int		ldi(t_cursor *c, t_game *cw)
 {
-    //function for ldi and lldi to read bytes and return value of those bytes
-    return (1);
-}
+	int arg1;
+	int arg2;
+	int pos;
 
-int		        ldi(t_cursor *c, t_game *cw)
-{
-    int     address;
-
-    if (c->ins->arg_type[0] == T_REG)
-        c->ins->arg1 = c->reg[c->ins->arg1];
-    else if (c->ins->arg_type[0] == T_IND)
-        address = c->c_pos + (c->ins->arg1 % IDX_MOD);
-    if (c->ins->arg_type[1] == T_REG)
-        c->ins->arg2 = c->reg[c->ins->arg2];
-    if (c->ins->arg_type[0] != T_IND)
-        address = c->c_pos + ((c->ins->arg1 + c->ins->arg2) % IDX_MOD);
-    c->reg[c->ins->arg3] = read_bytes(cw, address, 4);
-    if (c->reg[c->ins->arg3] == 0)
-        c->carry = 1;
-    else
-        c->carry = 0;
+	if (c->ins->arg_type[0] == T_IND)
+	{
+		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD);
+		arg1 = get_argument(cw, 4, pos);
+	}
+	else if (c->ins->arg_type[0] == T_DIR)
+		arg1 = c->ins->arg1;
+	else
+		arg1 = c->reg[c->ins->arg1];
+	if (c->ins->arg_type[1] == T_REG)
+		arg2 = c->reg[c->ins->arg2];
+	else
+		arg2 = c->ins->arg2;
+	c->reg[c->ins->arg3] = get_argument(cw, 4, get_pos(c->c_pos, (arg1 + arg2) % IDX_MOD));
+	if (c->reg[c->ins->arg3])
+		c->carry = 1;
+	else
+		c->carry = 0;
+	return (0);
 }
 
 int		        lldi(t_cursor *c, t_game *cw)
@@ -60,12 +62,15 @@ int		        lldi(t_cursor *c, t_game *cw)
     if (c->ins->arg_type[0] == T_REG)
         c->ins->arg1 = c->reg[c->ins->arg1];
     else if (c->ins->arg_type[0] == T_IND)
+    {
+		c->ins->arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1));
         address = c->c_pos + (c->ins->arg1 % IDX_MOD);
+    }
     if (c->ins->arg_type[1] == T_REG)
         c->ins->arg2 = c->reg[c->ins->arg2];
     if (c->ins->arg_type[0] != T_IND)
-        address = c->c_pos + (c->ins->arg1 + c->ins->arg2);
-    c->reg[c->ins->arg3] = read_bytes(cw, address, 4);
+        address = c->c_pos + c->ins->arg1 + c->ins->arg2;
+    c->reg[c->ins->arg3] = get_argument(cw, 4, address);
     if (c->reg[c->ins->arg3] == 0)
         c->carry = 1;
     else
