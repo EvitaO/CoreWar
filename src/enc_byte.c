@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 22:14:28 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/07 13:46:17 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int		check_enc_byte(t_instruction ins)
 	if (ins.op > 16 || ins.op < 1)
 		return (0);
 	if (!(ins.arg_type[0] & g_op_tab[ins.op].arg_type[0]))
-		return (0);;
-	if (!(ins.arg_type[1] & g_op_tab[ins.op].arg_type[1]))
+		return (0);
+	if (!(ins.arg_type[1] & g_op_tab[ins.op].arg_type[1]) && g_op_tab[ins.op].arg_type[2] != 0)
 		return (0);
 	if (!(ins.arg_type[2] & g_op_tab[ins.op].arg_type[2]) && g_op_tab[ins.op].arg_type[2] != 0)
 		return (0);

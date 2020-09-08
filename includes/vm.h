@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 15:27:08 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/08 13:07:32 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 **      input saving functions
 */
 void					read_args(char **argv, t_player *players);
-int 					check_arg(int argc, char **argv, t_player *players);
+t_flag					check_args(char **argv, int argc, t_player *players);
 char					*itoa_base(unsigned long long nbr, int base);
 int						ft_atoi2(const char *str);
 char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
 void					usage(void);
-
+int						check_flags(char *arg, t_flag *flags);
 
 /*
 **      process n_flag

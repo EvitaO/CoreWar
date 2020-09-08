@@ -6,11 +6,22 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:28:02 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 13:07:14 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
+
+int		check_flags(char *arg, t_flag *flags)
+{
+	if (ft_strcmp(arg, "-a") == 0)
+		flags->aflag = 1;
+	else if (ft_strcmp(arg, "-v") == 0)
+		flags->vflag = 1;
+	else
+		return (-1);
+	return (0);
+}
 
 static void			proces_nflag(t_player *players, int n, int max_pl)
 {

@@ -6,17 +6,17 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 15:52:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:25:46 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 13:15:08 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-static int		get_empty_index(t_player *players, int *arr, int max_pl)
+static int		get_empty_index(int *arr, int max_pl)
 {
 	int			i;
 
-	i = players->id - 1;
+	i = 0;
 	while (arr[i] != -1 && i < max_pl)
 		i++;
 	if (i == max_pl)
@@ -72,7 +72,7 @@ void			add_to_arr(t_player *players, int *arr, int max_pl)
 	{
 		if (players->n_flag <= 0)
 		{
-			i = get_empty_index(players, arr, max_pl);
+			i = get_empty_index(arr, max_pl);
 			if (i == -1)
 				exit(-1);
 			arr[i] = players->arg_n;
@@ -81,7 +81,7 @@ void			add_to_arr(t_player *players, int *arr, int max_pl)
 	}
 	if (players->n_flag <= 0)
 	{
-		i = get_empty_index(players, arr, max_pl);
+		i = get_empty_index(arr, max_pl);
 		if (i == -1)
 			exit(-1);
 		arr[i] = players->arg_n;

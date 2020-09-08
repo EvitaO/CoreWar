@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 15:28:36 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/07 14:04:43 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define VM_STRUCTS_H
 
 # include "vm.h"
+
+typedef struct			s_flag
+{
+	int					aflag;
+	int					vflag;
+}						t_flag;
 
 typedef struct			s_player
 {
@@ -51,7 +57,7 @@ typedef struct			s_game
 	int					die_cnt;
 	int					checks_cnt;
 	int					players;
-	int					aflag;
+	t_flag				flag;
 	unsigned char		arena[MEM_SIZE + 1];
 	struct s_op			op_tab[16];
 	struct s_cursor		*c;

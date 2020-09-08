@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 17:00:24 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:25:50 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 13:00:18 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void		swap(int *tmp, int *pl)
 void			sort_players(t_player **players)
 {
 	t_player	*tmp;
-	char		*name_tmp;
 
 	while ((*players)->next)
 	{
@@ -48,9 +47,6 @@ void			sort_players(t_player **players)
 		*players = (*players)->next;
 		if (tmp->id > (*players)->id)
 		{
-			name_tmp = ft_strdup(tmp->fname);
-			tmp->fname = ft_strdup((*players)->fname);
-			(*players)->fname = ft_strdup(name_tmp);
 			swap(&tmp->id, &(*players)->id);
 			swap(&tmp->arg_n, &(*players)->arg_n);
 		}
