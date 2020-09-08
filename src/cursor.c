@@ -19,6 +19,7 @@ void	kill_cursor(t_game *cw, t_cursor *c)
 		if (c->prev)
 			c->prev->next = c->next;
 		c->next->prev = c->prev;
+		free(c);
 	}
 	else
 	{
@@ -26,6 +27,7 @@ void	kill_cursor(t_game *cw, t_cursor *c)
 		{
 			c->prev->next = NULL;
 			cw->c = c->prev;
+			free(c);
 		}
 		else
 			cw->c = NULL;
