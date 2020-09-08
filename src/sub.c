@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ld.c                                               :+:    :+:            */
+/*   sub.c                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:16:14 by anonymous     ########   odam.nl         */
+/*   Created: 2020/09/08 14:30:04 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 14:45:56 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vm.h"
+#include "../includes/vm.h"
 
-int		ld(t_cursor *c, t_game *cw)
+int		sub(t_cursor *c, t_game *cw)
 {
-	int arg;
-	int pos;
+	int new;
 
-	if (c->ins->arg_type[0] == T_IND)
+	if (!cw)
+		return (0);
+	new = c->reg[c->ins->arg1] - c->reg[c->ins->arg2];
+	c->reg[c->ins->arg3] = new;
+	if (new != 0)
 	{
-		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD);
-		arg = get_argument(cw, 4, pos);
-	}
-	else
-		arg = c->ins->arg1;
-	c->reg[c->ins->arg2] = arg;
-	if (arg)
 		c->carry = 1;
+		return (1);
+	}
 	else
 		c->carry = 0;
 	return (0);

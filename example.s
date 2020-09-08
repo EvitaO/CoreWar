@@ -1,5 +1,5 @@
-.name       "Example"
-.comment    "This test needs me"
+.name		"aff"
+.comment	"aff"
 
 zjmp %0
 zjmp %200

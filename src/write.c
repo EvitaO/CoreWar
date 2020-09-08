@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ld.c                                               :+:    :+:            */
+/*   write.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:16:14 by anonymous     ########   odam.nl         */
+/*   Created: 2020/09/08 14:02:41 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 14:18:51 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vm.h"
+#include "../includes/vm.h"
 
-int		ld(t_cursor *c, t_game *cw)
+void	write_to_memory(t_game *cw, int arg, int size, int pos)
 {
-	int arg;
-	int pos;
+	unsigned char	mask;
+	int				shift;
+	int				i;
+	int				w_pos;
 
-	if (c->ins->arg_type[0] == T_IND)
+	i = 0;
+	mask = 255;
+	shift = 24;
+	w_pos = pos;
+	while (i < size)
 	{
-		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD);
-		arg = get_argument(cw, 4, pos);
+		cw->arena[w_pos] = (arg >> shift) & mask;
+		shift -= 8;
+		i++;
+		w_pos = get_pos(w_pos, 1);
 	}
-	else
-		arg = c->ins->arg1;
-	c->reg[c->ins->arg2] = arg;
-	if (arg)
-		c->carry = 1;
-	else
-		c->carry = 0;
-	return (0);
 }

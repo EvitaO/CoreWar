@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 15:04:22 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/02 01:35:50 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 14:47:07 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void			set_game_data(t_game *game, t_player *players)
 {
 	game->players = count_players(players);
-	game->player_l_alive = game->players - 2;
+	game->player_l_alive = game->players;
 	game->cycles_cnt = 0;
 	game->live_cnt = 0;
 	game->cycles_to_die = CYCLE_TO_DIE;

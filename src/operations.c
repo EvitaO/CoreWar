@@ -60,7 +60,9 @@ int		execute_operation(t_cursor *c, t_game *cw, t_ops op)
 	ret = 1;
 	if (cw->v != NULL)
 	{
+		wclear(cw->v->score);
 		mvwprintw(cw->v->score, 7, 0, "check op-code");
+		v_print_score(cw);
 		v_print_cursor(cw, c, 0);
 	}
 	if (c->op > 16 || c->op < 1)
