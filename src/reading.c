@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 19:42:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 13:44:22 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 17:34:53 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void		get_data(int fd, t_player *players)
 		exit(ft_printf("MAgic header error	%i	%i\n", i));
 	str = itoa_base(players->data->magic, 16);
 	str2 = itoa_base(COREWAR_EXEC_MAGIC, 16);
-	ft_printf("%s\n", str);
 	str[6] = '\0';
 	str = str_rev_by_2(str);
 	if (ft_strcmp(str, str2) != 0)

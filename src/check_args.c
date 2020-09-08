@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 13:29:25 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 17:34:31 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ t_flag		check_args(char **argv, int argc, t_player *players)
 	}
 	give_id(players, count_args(argv, argc));
 	ft_nflag(players);
-	while (players->prev)
-		players = players->prev;
-	while (players->next)
-	{
-		ft_printf("Player %i %i %s\n", players->id, players->n_flag, argv[players->arg_n]);
-		players = players->next;
-	}
-	ft_printf("Player %i %i %s\n", players->id, players->n_flag, argv[players->arg_n]);
+	// while (players->prev)
+	// 	players = players->prev;
+	// while (players->next)
+	// {
+	// 	ft_printf("Player %i %i %s\n", players->id, players->n_flag, argv[players->arg_n]);
+	// 	players = players->next;
+	// }
+	// ft_printf("Player %i %i %s\n", players->id, players->n_flag, argv[players->arg_n]);
 	return(flag);
 }

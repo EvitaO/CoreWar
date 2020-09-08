@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:16:19 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 17:31:55 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		        lldi(t_cursor *c, t_game *cw)
     c->reg[c->ins->arg3] = get_argument(cw, 4, address);
     if (c->reg[c->ins->arg3] == 0)
         c->carry = 1;
-    else
-        c->carry = 0;
+	else
+		c->carry = 0;
+	return (0);
 }
