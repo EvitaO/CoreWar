@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   live.c                                             :+:    :+:            */
+/*   add.c                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/30 15:53:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 23:05:46 by anonymous     ########   odam.nl         */
+/*   Created: 2020/09/08 14:27:16 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 14:45:12 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int		live(t_cursor *c, t_game *cw)
+int		add(t_cursor *c, t_game *cw)
 {
-	cw->live_cnt++;
-	c->live = cw->cycles_cnt;
-	if (-(c->ins->arg1) == c->reg[1])
-		cw->player_l_alive = c->ins->arg1;
-	else
+	int new;
+
+	if (!cw)
 		return (0);
-	if (cw->v != NULL)
-		wclear(cw->v->score);
-	return (1);
+	new = c->reg[c->ins->arg1] + c->reg[c->ins->arg2];
+	c->reg[c->ins->arg3] = new;
+	if (new != 0)
+	{
+		c->carry = 1;
+		return (1);
+	}
+	else
+		c->carry = 0;
+	return (0);
 }

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   live.c                                             :+:    :+:            */
+/*   st.c                                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/30 15:53:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/03 23:05:46 by anonymous     ########   odam.nl         */
+/*   Created: 2020/09/08 13:43:40 by anonymous     #+#    #+#                 */
+/*   Updated: 2020/09/08 14:29:53 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int		live(t_cursor *c, t_game *cw)
+int		st(t_cursor *c, t_game *cw)
 {
-	cw->live_cnt++;
-	c->live = cw->cycles_cnt;
-	if (-(c->ins->arg1) == c->reg[1])
-		cw->player_l_alive = c->ins->arg1;
+	int pos;
+	int arg;
+
+	arg = c->reg[c->ins->arg1];
+	if (c->ins->arg_type[1] == T_REG)
+	{
+		c->reg[c->ins->arg2] = arg;
+		return (1);
+	}
 	else
-		return (0);
-	if (cw->v != NULL)
-		wclear(cw->v->score);
+	{
+		pos = get_pos(c->c_pos, c->ins->arg2 % IDX_MOD);
+		write_to_memory(cw, arg, 4, pos);
+	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/30 20:16:17 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/06 22:38:44 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ typedef struct			s_op
 	int					id;
 	int					cycles;
 	char				*description;
-	int					carry;
-	int					label_size;
 	int					octet;
+	int					label_size;
 }						t_op;
 
 extern t_op				g_op_tab[17];
@@ -55,6 +54,7 @@ typedef struct			s_game
 	unsigned char		arena[MEM_SIZE + 1];
 	struct s_op			op_tab[16];
 	struct s_cursor		*c;
+	struct s_visual		*v;
 }						t_game;
 
 typedef struct			s_cursor
@@ -67,7 +67,7 @@ typedef struct			s_cursor
 	int					live;
 	int					wait;
 	int					jump;
-	int					reg[REG_NUMBER];
+	int					reg[REG_NUMBER + 1];
 	struct s_instruction*ins;
 	struct s_cursor		*next;
 	struct s_cursor		*prev;
@@ -82,6 +82,6 @@ typedef struct			s_instruction
 	int	arg_type[3];
 }						t_instruction;
 
-typedef int		(*t_ops[16])(t_cursor *c, t_game *cw);
+typedef int		(*t_ops[17])(t_cursor *c, t_game *cw);
 
 #endif

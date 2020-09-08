@@ -12,25 +12,22 @@
 
 #include "../includes/vm.h"
 
-void	kill_cursor(t_game *cw, int id)
+void	kill_cursor(t_game *cw, t_cursor *c)
 {
-	t_cursor *temp;
-	// int i = 0;
-
-	temp = cw->c;
-	while (temp)
+	if (c->next)
 	{
-		// ft_printf("i = %i\n", i);
-		if (temp->id == id)
+		if (c->prev)
+			c->prev->next = c->next;
+		c->next->prev = c->prev;
+	}
+	else
+	{
+		if (c->prev)
 		{
-			if (temp->prev)
-				temp->prev->next = temp->next;
-			else
-				cw->c = temp->next;
-			free(temp);
-			return ;
+			c->prev->next = NULL;
+			cw->c = c->prev;
 		}
-		// i++;
-		temp = temp->next;
+		else
+			cw->c = NULL;
 	}
 }

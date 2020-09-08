@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/31 12:59:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 15:06:45 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "op.h"
 # include "../libft/includes/libft.h"
 # include "vm_structs.h"
+# include "vm_visualizer.h"
 # include <fcntl.h>
 
 /*
@@ -62,7 +63,7 @@ void					free_arr(char **name);
 **		game loop functions
 */
 int						game_loop(t_game *cw);
-void					kill_cursor(t_game *cw, int id);
+void					kill_cursor(t_game *cw, t_cursor *c);
 char					*get_winner(t_player *players, int id);
 
 /*
@@ -72,6 +73,8 @@ void					get_operation(t_cursor *cursor, t_game *cw);
 int						execute_operation(t_cursor *c, t_game *cw, t_ops op);
 int						get_pos(int position, int distance);
 t_instruction			*new_instruction(void);
+int						get_argument(t_game *cw, int size, int pos);
+void					write_to_memory(t_game *cw, int arg, int size, int pos);
 
 /*
 **		encoding byte functions
@@ -85,6 +88,13 @@ int						check_registries(t_instruction ins);
 */
 int						live(t_cursor *c, t_game *cw);
 int						ld(t_cursor *c, t_game *cw);
+int						ldi(t_cursor *c, t_game *cw);
+int						st(t_cursor *c, t_game *cw);
+int						add(t_cursor *c, t_game *cw);
+int						sub(t_cursor *c, t_game *cw);
+int						and(t_cursor *c, t_game *cw);
+int						or(t_cursor *c, t_game *cw);
+int						xor(t_cursor *c, t_game *cw);
 
 /*
 **		debug functions
@@ -92,6 +102,5 @@ int						ld(t_cursor *c, t_game *cw);
 void					print_game_data(t_game *data);
 void					print_cursor_data(t_game *data);
 void					print_instruction_data(t_instruction ins);
-
 
 #endif

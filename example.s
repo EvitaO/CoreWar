@@ -1,4 +1,4 @@
-.name       "Batman"
-.comment    "This city needs me"
+.name		"aff"
+.comment	"aff"
 
-live %1
+aff		r1
