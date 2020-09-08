@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:15:49 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 19:02:46 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void					free_arr(char **name);
 int						game_loop(t_game *cw);
 void					kill_cursor(t_game *cw, t_cursor *c);
 char					*get_winner(t_player *players, int id);
+void					kill_all_cursors(t_game *cw);
 
 /*
 **		generic operation functions

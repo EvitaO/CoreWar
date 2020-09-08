@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:17:35 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 19:02:56 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			main(int argc, char **argv)
 	{
 		free(cw->v);
 	}
+	kill_all_cursors(cw);
 	free(cw);
 	ft_printf("Contestant %i, \"%s\", has won !\n", winner, get_winner(players, winner));
 	free_players(players);

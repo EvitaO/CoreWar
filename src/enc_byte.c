@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:17:50 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 18:57:08 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int		check_registries(t_instruction ins)
 {
 	if (ins.arg_type[0] == T_REG)
 	{
-		if (ins.arg1 >= REG_NUMBER)
+		if (ins.arg1 > REG_NUMBER || ins.arg1 < 1)
 			return (0);
 	}
 	if (ins.arg_type[1] == T_REG)
 	{
-		if (ins.arg2 >= REG_NUMBER)
+		if (ins.arg2 > REG_NUMBER || ins.arg2 < 1)
 			return (0);
 	}
 	if (ins.arg_type[2] == T_REG)
 	{
-		if (ins.arg3 >= REG_NUMBER)
+		if (ins.arg3 > REG_NUMBER || ins.arg3 < 1)
 			return (0);
 	}
 	return (1);
@@ -51,6 +51,8 @@ int		get_size(t_instruction ins)
 	ret += size_of_arg(ins, 0);
 	ret += size_of_arg(ins, 1);
 	ret += size_of_arg(ins, 2);
+	if (ret == 0)
+		ret = 1;
 	return (ret);
 }
 
@@ -69,6 +71,7 @@ int		check_enc_byte(t_instruction ins)
 
 int		encoding_byte(unsigned char data, t_instruction *ins, int *ret)
 {
+	// ft_printf("enc_byte->%i\n", ins->op);
 	if (g_op_tab[ins->op].octet == 0)
 	{
 		ins->arg_type[0] = T_DIR;
@@ -82,8 +85,8 @@ int		encoding_byte(unsigned char data, t_instruction *ins, int *ret)
 	if (ins->arg_type[1] == 3)
 		ins->arg_type[1] = 4;
 	ins->arg_type[2] = (data >> 2) & 3;
-	if (ins->arg_type[1] == 3)
-		ins->arg_type[1] = 4;
+	if (ins->arg_type[2] == 3)
+		ins->arg_type[2] = 4;
 	*ret = get_size(*ins);
 	if (!check_enc_byte(*ins))
 	{

@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/08 17:36:29 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/08 18:50:33 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ void			add_cursor(t_cursor **cursor)
 	(*cursor)->prev = (t_cursor *)ft_memalloc(sizeof(t_cursor));
 	(*cursor)->prev->next = *cursor;
 	*cursor = (*cursor)->prev;
+}
+
+void			set_registries(t_cursor *cursor)
+{
+	int i;
+
+	i = 2;
+	cursor->reg[0] = 0;
+	while (i < 17)
+	{
+		cursor->reg[i] = 0;
+		i++;
+	}
 }
 
 void			set_cursors(t_cursor *cursors, t_player *players)
