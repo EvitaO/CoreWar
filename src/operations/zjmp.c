@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/06 18:11:18 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/09 09:46:16 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@
 
 int				zjmp(t_cursor *c, t_game *cw)
 {
+	(void)cw;
 	if (c->carry == 1)
 	{
 		c->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
 		while (c->c_pos < 0)
 			c->c_pos = c->c_pos + MEM_SIZE;
 	}
-	else if (cw)
+	else
 		c->c_pos = get_pos(c->c_pos, 2);
 	return (0);
 }

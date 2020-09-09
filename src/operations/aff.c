@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 16:36:45 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 13:14:10 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 09:36:50 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int				aff(t_cursor *c, t_game *cw)
 {
 	int		val;
 
-	val = c->reg[c->ins->arg1] % 256;
-	if (cw->flag.aflag == 1)
-		ft_printf("aff:	%c\n", (char)val);
+	if (c->ins->arg_type[0] == T_REG)
+	{
+		val = c->reg[c->ins->arg1] % 256;
+		if (cw->flag.aflag == 1)
+			ft_printf("Aff:	%c\n", (char)val);
+	}
 	return (0);
 }
