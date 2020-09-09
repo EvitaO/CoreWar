@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 10:40:38 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 11:24:44 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ int		check_flags(char **arg, t_flag *flags, int *i)
 		flags->aflag = 1;
 	else if (ft_strcmp(arg[*i], "-v") == 0)
 		flags->vflag = 1;
-	else if (ft_strcmp(arg[*i], "-dump") == 0)
+	else if (ft_strcmp(arg[*i], "-dump") == 0 || ft_strcmp(arg[*i], "-d") == 0)
 	{
+		if (ft_strcmp(arg[*i], "-dump") == 0)
+			flags->mod = 32;
+		else
+			flags->mod = 64;
 		if (arg[*i + 1] && ft_isdigit(arg[*i + 1][0]) == 1)
 		{
 			flags->dump_flag = ft_atoi2(arg[*i + 1]);
-			ft_printf("%i\n", flags->dump_flag);
 			if (flags->dump_flag <= 0)
 				exit(ft_printf("Error number has to be higher then 0\n"));
 			(*i)++;
 		}
 		else
-			exit(ft_printf("not a valid use of '-dump' flag\n"));
+			exit(ft_printf("not a valid use of '%s' flag\n", arg[*i]));
 	}
 	else
 		return (-1);
