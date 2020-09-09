@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 15:18:06 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 10:00:05 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct			s_flag
 {
 	int					aflag;
 	int					vflag;
+	int					dump_flag;
 }						t_flag;
 
 typedef struct			s_player

@@ -6,18 +6,31 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 13:39:32 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 10:40:38 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int		check_flags(char *arg, t_flag *flags)
+int		check_flags(char **arg, t_flag *flags, int *i)
 {
-	if (ft_strcmp(arg, "-a") == 0)
+	if (ft_strcmp(arg[*i], "-a") == 0)
 		flags->aflag = 1;
-	else if (ft_strcmp(arg, "-v") == 0)
+	else if (ft_strcmp(arg[*i], "-v") == 0)
 		flags->vflag = 1;
+	else if (ft_strcmp(arg[*i], "-dump") == 0)
+	{
+		if (arg[*i + 1] && ft_isdigit(arg[*i + 1][0]) == 1)
+		{
+			flags->dump_flag = ft_atoi2(arg[*i + 1]);
+			ft_printf("%i\n", flags->dump_flag);
+			if (flags->dump_flag <= 0)
+				exit(ft_printf("Error number has to be higher then 0\n"));
+			(*i)++;
+		}
+		else
+			exit(ft_printf("not a valid use of '-dump' flag\n"));
+	}
 	else
 		return (-1);
 	return (0);

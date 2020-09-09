@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:34:31 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 09:59:06 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_flag		check_args(char **argv, int argc, t_player *players)
 			players->arg_n = i;
 			add_node(&players, &pl);
 		}
-		else if (check_flags(argv[i], &flag) != 0)
+		else if (check_flags(argv, &flag, &i) != 0)
 			exit(ft_printf("arg is not a valid argument\n"));
 		i++;
 	}

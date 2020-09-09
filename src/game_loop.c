@@ -112,6 +112,8 @@ int		game_loop(t_game *cw)
 			}
 			temp = temp->prev;
 		}
+		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
+			exit(print_dump(cw));
 		i++;
 	}
 }

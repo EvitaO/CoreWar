@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 15:51:08 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:11:03 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 10:17:45 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int				sti(t_cursor *c, t_game *cw)
 		dst = c->c_pos + (((c->ins->arg2 + c->ins->arg3) % IDX_MOD)) % MEM_SIZE;
 	while (dst < 0)
 		dst = dst + MEM_SIZE;
-	cw->arena[dst] = c->ins->arg1;
+	write_to_memory(cw, c->ins->arg1, sizeof(T_REG), dst);
 	return (0);
 }

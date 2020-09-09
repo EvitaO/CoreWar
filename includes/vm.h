@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 19:02:46 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 10:31:38 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int						ft_atoi2(const char *str);
 char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
 void					usage(void);
-int						check_flags(char *arg, t_flag *flags);
+int						check_flags(char **arg, t_flag *flags, int *i);
+
 
 /*
 **      process n_flag
@@ -66,6 +67,7 @@ int						game_loop(t_game *cw);
 void					kill_cursor(t_game *cw, t_cursor *c);
 char					*get_winner(t_player *players, int id);
 void					kill_all_cursors(t_game *cw);
+int						print_dump(t_game *cw);
 
 /*
 **		generic operation functions
