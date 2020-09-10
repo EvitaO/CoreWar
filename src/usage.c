@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 17:03:53 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/24 14:25:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/09 12:51:06 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void		usage(void)
 {
-	ft_printf("Usage: ./corewar [[-n number] champion1.cor] ...\n");
+	ft_printf("Usage: ./corewar [-d N -dump N -v -a -u] [[-n number] champion1.cor] ...\n");
 	ft_printf("		Possible Flags:\n");
 	ft_printf("			-u	: Outputs this usage message\n");
-	ft_printf("			-d N	: Dumps memory after N cycles then exits\n");
+	ft_printf("			-d N	: Dumps memory after N cycles, 64 octets per line, then exits\n");
+	ft_printf("			-dump N	: Dumps memory after N cycles, 32 octets per line, then exits\n");
+	ft_printf("			-a	: Prints output from 'aff', default is to hide it\n");
+	ft_printf("			-v	: Works with visualizer\n");
 	exit(1);
 }
