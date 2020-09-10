@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:25:51 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 14:45:55 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		check(t_game *cw)
 	cw->checks_cnt++;
 	while (temp)
 	{
-		if (temp->live < cw->cycles_cnt - cw->cycles_to_die)
+		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die)
 		{
 			if (cw->v != NULL)
 			{
