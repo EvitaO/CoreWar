@@ -6,13 +6,13 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 11:24:44 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:35:23 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int		check_flags(char **arg, t_flag *flags, int *i)
+int			check_flags(char **arg, t_flag *flags, int *i)
 {
 	if (ft_strcmp(arg[*i], "-a") == 0)
 		flags->aflag = 1;
@@ -39,7 +39,7 @@ int		check_flags(char **arg, t_flag *flags, int *i)
 	return (0);
 }
 
-static void			proces_nflag(t_player *players, int n, int max_pl)
+static void	proces_nflag(t_player *players, int n, int max_pl)
 {
 	int		arr[max_pl];
 
@@ -52,7 +52,7 @@ static void			proces_nflag(t_player *players, int n, int max_pl)
 	adjust_id(players, arr, max_pl);
 }
 
-void				ft_nflag(t_player *players)
+void		ft_nflag(t_player *players)
 {
 	int			i;
 	int			cnt;

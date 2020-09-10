@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/08 18:50:33 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:48:21 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void			set_cursors(t_cursor *cursors, t_player *players)
 {
 	while (players->next)
 	{
-		//ft_printf("%i, %s\n", players->id, players->data->prog_name);
 		cursors->c_pos = players->cursor;
 		cursors->id = players->id;
 		cursors->live = 0;
@@ -58,13 +57,4 @@ void			set_cursors(t_cursor *cursors, t_player *players)
 	cursors->op = -1;
 	cursors->carry = 0;
 	cursors->p_pos = -1;
-	// while (cursors)
-	// {
-	//     ft_printf("%i   %i\n", cursors->c_pos, cursors->id);
-	//     cursors = cursors->next;
-	// }
-	// while (cursors)
-	// {
-	// 	cursors = cursors->prev;
-	// }
 }

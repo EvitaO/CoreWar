@@ -6,13 +6,24 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 11:27:11 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:33:35 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-int			main(int argc, char **argv)
+void	set_vis(t_game *cw, t_player *players)
+{
+	if (cw->flag.vflag == 1)
+	{
+		cw->v = v_start_visualizer();
+		v_print_arena(cw, players);
+	}
+	else
+		cw->v = NULL;
+}
+
+int		main(int argc, char **argv)
 {
 	t_player	*players;
 	t_game		*cw;
@@ -28,21 +39,14 @@ int			main(int argc, char **argv)
 	intro_players(players);
 	cw = game_set_par(players);
 	cw->flag = flag;
-	if (cw->flag.vflag == 1)
-	{
-		cw->v = v_start_visualizer();
-		v_print_arena(cw, players);
-	}
-	else
-		cw->v = NULL;
+	set_vis(cw, players);
 	winner = game_loop(cw);
 	if (cw->v != NULL)
-	{
 		free(cw->v);
-	}
 	kill_all_cursors(cw);
 	free(cw);
-	ft_printf("Contestant %i, \"%s\", has won !\n", winner, get_winner(players, winner));
+	ft_printf("Contestant %i, \"%s\", has won !\n", winner, \
+	get_winner(players, winner));
 	free_players(players);
 	return (0);
 }

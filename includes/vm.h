@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 10:31:38 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:04:04 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int						count_args(char **argv, int argc);
 void					usage(void);
 int						check_flags(char **arg, t_flag *flags, int *i);
 
-
 /*
 **      process n_flag
 */
@@ -41,7 +40,8 @@ int						search_in_arr(int *arr, int num, int max_pl);
 void					sort_players(t_player **players);
 void					adjust_id(t_player *players, int *arr, int max_pl);
 void					set_arr_m1(int max_pl, int *arr);
-int						check_find_n(t_player **players, int *arr, int n, int max_pl);
+int						check_find_n(t_player **players, int *arr, int n,\
+						int max_pl);
 void					add_to_arr(t_player *players, int *arr, int max_pl);
 
 /*
@@ -82,7 +82,8 @@ void					write_to_memory(t_game *cw, int arg, int size, int pos);
 /*
 **		encoding byte functions
 */
-int						encoding_byte(unsigned char data, t_instruction *ins, int *ret);
+int						encoding_byte(unsigned char data, t_instruction *ins,\
+						int *ret);
 int						size_of_arg(t_instruction ins, int arg);
 int						check_registries(t_instruction ins);
 
@@ -91,11 +92,11 @@ int						check_registries(t_instruction ins);
 */
 int						live(t_cursor *c, t_game *cw);
 int						ld(t_cursor *c, t_game *cw);
-int 		            op_fork(t_cursor *c, t_game *cw);
-int	    	            lfork(t_cursor *c, t_game *cw);
-int				        zjmp(t_cursor *c, t_game *cw);
-int				        aff(t_cursor *c, t_game *cw);
-int				        sti(t_cursor *c, t_game *cw);
+int						op_fork(t_cursor *c, t_game *cw);
+int						lfork(t_cursor *c, t_game *cw);
+int						zjmp(t_cursor *c, t_game *cw);
+int						aff(t_cursor *c, t_game *cw);
+int						sti(t_cursor *c, t_game *cw);
 int						ldi(t_cursor *c, t_game *cw);
 int						lld(t_cursor *c, t_game *cw);
 int						lldi(t_cursor *c, t_game *cw);

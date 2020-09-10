@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 14:58:08 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/08 17:36:43 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:29:11 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void		give_start_cursor(t_player *plr, int cnt_pl, unsigned char *arn)
 void			game_setup(t_player *players, t_game *game_data)
 {
 	int				cnt_pl;
-	
+
 	cnt_pl = count_players(players);
 	give_start_cursor(players, cnt_pl, game_data->arena);
 }

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:31:55 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:08:12 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int		ldi(t_cursor *c, t_game *cw)
 		arg2 = c->reg[c->ins->arg2];
 	else
 		arg2 = c->ins->arg2;
-	c->reg[c->ins->arg3] = get_argument(cw, 4, get_pos(c->c_pos, (arg1 + arg2) % IDX_MOD));
+	c->reg[c->ins->arg3] = get_argument(cw, 4, \
+	get_pos(c->c_pos, (arg1 + arg2) % IDX_MOD));
 	if (c->reg[c->ins->arg3])
 		c->carry = 1;
 	else
@@ -55,24 +56,24 @@ int		ldi(t_cursor *c, t_game *cw)
 	return (0);
 }
 
-int		        lldi(t_cursor *c, t_game *cw)
+int		lldi(t_cursor *c, t_game *cw)
 {
-    int     address;
+	int		address;
 
-    if (c->ins->arg_type[0] == T_REG)
-        c->ins->arg1 = c->reg[c->ins->arg1];
-    else if (c->ins->arg_type[0] == T_IND)
-    {
+	if (c->ins->arg_type[0] == T_REG)
+		c->ins->arg1 = c->reg[c->ins->arg1];
+	else if (c->ins->arg_type[0] == T_IND)
+	{
 		c->ins->arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1));
-        address = c->c_pos + (c->ins->arg1 % IDX_MOD);
-    }
-    if (c->ins->arg_type[1] == T_REG)
-        c->ins->arg2 = c->reg[c->ins->arg2];
-    if (c->ins->arg_type[0] != T_IND)
-        address = c->c_pos + c->ins->arg1 + c->ins->arg2;
-    c->reg[c->ins->arg3] = get_argument(cw, 4, address);
-    if (c->reg[c->ins->arg3] == 0)
-        c->carry = 1;
+		address = c->c_pos + (c->ins->arg1 % IDX_MOD);
+	}
+	if (c->ins->arg_type[1] == T_REG)
+		c->ins->arg2 = c->reg[c->ins->arg2];
+	if (c->ins->arg_type[0] != T_IND)
+		address = c->c_pos + c->ins->arg1 + c->ins->arg2;
+	c->reg[c->ins->arg3] = get_argument(cw, 4, address);
+	if (c->reg[c->ins->arg3] == 0)
+		c->carry = 1;
 	else
 		c->carry = 0;
 	return (0);

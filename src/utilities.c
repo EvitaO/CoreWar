@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/08/18 13:09:32 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:49:56 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		get_pos(int position, int distance)
 	int new_pos;
 
 	new_pos = position + distance;
-	// ft_printf("pos:%i, distance:%i, new_pos:%i\n", position, distance, new_pos);
 	if (new_pos < 0)
 		return (MEM_SIZE + new_pos);
 	return (new_pos % MEM_SIZE);
@@ -43,7 +42,8 @@ void	print_cursor_data(t_game *data)
 	ft_printf("---CURSOR DATA---\n");
 	while (temp)
 	{
-		ft_printf("id:%i, c_pos:%i, live:%i, op:%i, wait:%i\n", temp->id, temp->c_pos, temp->live, temp->op, temp->wait);
+		ft_printf("id:%i, c_pos:%i, live:%i, op:%i, wait:%i\n", \
+		temp->id, temp->c_pos, temp->live, temp->op, temp->wait);
 		temp = temp->next;
 	}
 }
@@ -65,10 +65,7 @@ char	*get_winner(t_player *players, int id)
 	while (temp)
 	{
 		if (temp->id == id)
-		{
-			//ft_printf("%s", temp->data->prog_name);
 			return (temp->data->prog_name);
-		}
 		temp = temp->next;
 	}
 	return (NULL);

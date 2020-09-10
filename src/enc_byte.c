@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 11:46:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/10 13:13:09 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,17 @@ int		check_enc_byte(t_instruction ins)
 		return (0);
 	if (!(ins.arg_type[0] & g_op_tab[ins.op].arg_type[0]))
 		return (0);
-	if (!(ins.arg_type[1] & g_op_tab[ins.op].arg_type[1]) && g_op_tab[ins.op].arg_type[2] != 0)
+	if (!(ins.arg_type[1] & g_op_tab[ins.op].arg_type[1]) &&\
+		g_op_tab[ins.op].arg_type[2] != 0)
 		return (0);
-	if (!(ins.arg_type[2] & g_op_tab[ins.op].arg_type[2]) && g_op_tab[ins.op].arg_type[2] != 0)
+	if (!(ins.arg_type[2] & g_op_tab[ins.op].arg_type[2]) &&\
+		g_op_tab[ins.op].arg_type[2] != 0)
 		return (0);
 	return (1);
 }
 
 int		encoding_byte(unsigned char data, t_instruction *ins, int *ret)
 {
-	// ft_printf("enc_byte->%i\n", ins->op);
 	if (g_op_tab[ins->op].octet == 0)
 	{
 		ins->arg_type[0] = T_DIR;

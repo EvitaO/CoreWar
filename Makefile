@@ -6,7 +6,7 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/09/09 12:00:03 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/10 14:16:44 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = vm
 SRC =  main.c utils_nflag.c check_args.c itoa_base.c reading.c intro.c\
 		str_rev_by_2.c game_setup.c game_set_par.c set_cursors.c free.c count.c\
 		usage.c utils_nflag2.c nflag.c game_loop.c cursor.c enc_byte.c new.c\
-		utilities.c operations.c op.c visualizer.c print_dump.c operations/ld.c\
+		utilities.c operations.c op.c visualizer.c visualizer2.c print_dump.c operations/ld.c\
 		operations/fork.c operations/live.c operations/sti.c operations/aff.c\
 		operations/zjmp.c operations/st.c operations/add.c operations/sub.c\
 		operations/and.c operations/or.c operations/xor.c write.c\
@@ -26,7 +26,7 @@ OBJ =  main.o utils_nflag.o check_args.o itoa_base.o reading.o intro.o\
 		usage.o utils_nflag2.o nflag.o game_loop.o cursor.o enc_byte.o new.o\
 		utilities.o operations.o op.o fork.o sti.o aff.o zjmp.o live.o\
 		visualizer.o ld.o st.o add.o sub.o and.o or.o xor.o write.o ldi.o\
-		print_dump.o
+		print_dump.o visualizer2.o
 
 FLAGS = -Wall -Wextra -Werror
 
