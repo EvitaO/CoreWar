@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/10 13:51:22 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 14:14:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 14:32:41 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,10 @@ void		v_print_pixel(t_game *cw, int i, int color)
 	i *= 3;
 	wmove(cw->v->win, i / WIDTH, i % WIDTH);
 	wattron(cw->v->win, COLOR_PAIR(color));
-	wattron(cw->v->win, COLOR_PAIR(1));
 	wattron(cw->v->win, A_REVERSE);
 	wprintw(cw->v->win, "%s", pixel);
 	wrefresh(cw->v->win);
-	usleep(100000);
+	usleep(10000);
 	wattroff(cw->v->win, A_REVERSE);
 	wmove(cw->v->win, i / WIDTH, i % WIDTH);
 	wprintw(cw->v->win, "%s", pixel);

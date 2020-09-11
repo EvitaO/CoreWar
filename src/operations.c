@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:47:23 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 15:28:31 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int			get_argument(t_game *cw, int size, int pos)
 		i++;
 	}
 	ret = *(int*)data;
+	if (size == 2)
+		ret = *(short*)data;
 	return (ret);
 }
 
@@ -57,17 +59,18 @@ void		collect_arguments(t_cursor *c, t_game *cw)
 
 void		exec_vis(t_game *cw, t_cursor *c, char *str)
 {
+	if (!c)
 	if (ft_strcmp(str, "check op-code") == 0)
 	{
 		wclear(cw->v->score);
 		mvwprintw(cw->v->score, 7, 0, "check op-code");
 		v_print_score(cw);
-		v_print_cursor(cw, c, 0);
+		// v_print_cursor(cw, c, 0);
 	}
 	if (cw->v != NULL)
 	{
 		mvwprintw(cw->v->score, 7, 0, str);
-		v_print_cursor(cw, c, 0);
+		// v_print_cursor(cw, c, 0);
 		sleep(SPEED);
 	}
 }
