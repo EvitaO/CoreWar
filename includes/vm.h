@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:04:04 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 14:38:39 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void					set_cursors(t_cursor *cursor, t_player *players);
 */
 void					free_cursor(t_cursor *cursor);
 void					free_players(t_player *players);
-void					free_arr(char **name);
 
 /*
 **		game loop functions

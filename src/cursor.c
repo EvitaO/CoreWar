@@ -6,13 +6,32 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:28:43 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:12:23 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 14:48:07 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-void	kill_cursor(t_game *cw, t_cursor *c)
+static void	kill_cursor2(t_game *cw, t_cursor *c)
+{
+	if (c->prev)
+	{
+		c->prev->next = NULL;
+		cw->c = c->prev;
+		if (c->ins)
+			free(c->ins);
+		free(c);
+	}
+	else
+	{
+		if (c->ins)
+			free(c->ins);
+		free(c);
+		cw->c = NULL;
+	}
+}
+
+void		kill_cursor(t_game *cw, t_cursor *c)
 {
 	if (c->next)
 	{
@@ -24,21 +43,10 @@ void	kill_cursor(t_game *cw, t_cursor *c)
 		free(c);
 	}
 	else
-	{
-		if (c->prev)
-		{
-			c->prev->next = NULL;
-			cw->c = c->prev;
-			if (c->ins)
-				free(c);
-			free(c);
-		}
-		else
-			cw->c = NULL;
-	}
+		kill_cursor2(cw, c);
 }
 
-void	kill_all_cursors(t_game *cw)
+void		kill_all_cursors(t_game *cw)
 {
 	t_cursor *temp1;
 	t_cursor *temp2;

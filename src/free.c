@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 17:31:35 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/08 13:27:52 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 14:38:04 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,6 @@ void			free_cursor(t_cursor *cursors)
 		cursors = tmp;
 	}
 	free(cursors);
-}
-
-void			free_arr(char **name)
-{
-	int		i;
-
-	i = 0;
-	while (name[i])
-	{
-		free(name[i]);
-		i++;
-	}
-	free(name);
 }
 
 void			free_players(t_player *players)
