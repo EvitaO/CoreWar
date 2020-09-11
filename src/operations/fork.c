@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 22:09:51 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 17:15:21 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			op_fork(t_cursor *c, t_game *cw)
 
 	new = (t_cursor*)ft_memalloc(sizeof(t_cursor));
 	new = (t_cursor*)ft_memcpy(new, c, sizeof(t_cursor));
-	new->ins = (t_instruction*)ft_memset(new->ins, 0, sizeof(t_instruction));
+	new->ins = NULL;
 	new->op = -1;
 	new->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
 	while (new->c_pos < 0)
@@ -51,7 +51,7 @@ int			lfork(t_cursor *c, t_game *cw)
 
 	new = (t_cursor*)ft_memalloc(sizeof(t_cursor));
 	new = (t_cursor*)ft_memcpy(new, c, sizeof(t_cursor));
-	new->ins = (t_instruction*)ft_memset(new->ins, 0, sizeof(t_instruction));
+	new->ins = NULL;
 	new->op = -1;
 	new->c_pos = (c->c_pos + c->ins->arg1) % MEM_SIZE;
 	while (new->c_pos < 0)
