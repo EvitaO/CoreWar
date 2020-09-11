@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:28:43 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/11 14:48:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 16:08:26 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		kill_all_cursors(t_game *cw)
 		if (temp1->ins)
 			free(temp1->ins);
 		free(temp1);
+		temp1 = NULL;
 		if (temp2)
 			temp1 = temp2;
 	}

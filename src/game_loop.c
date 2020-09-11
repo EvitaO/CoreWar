@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 14:45:55 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/11 16:10:06 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			end_game(t_game *cw)
 	{
 		if (cw->c->ins)
 			free(cw->c->ins);
-		free(cw->c);
+		cw->c->ins = NULL;
 	}
 	return (cw->player_l_alive);
 }
