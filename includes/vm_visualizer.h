@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 11:42:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 14:14:13 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 17:33:29 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <ncurses.h>
 # include <curses.h>
 
-# define HEIGHT 50
-# define WIDTH 300
+# define HEIGHT 64
+# define WIDTH 192
 
 /*
 ** change to 'SPEED 0' to run the program in real time
