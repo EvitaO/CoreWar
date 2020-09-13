@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 15:47:37 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/13 16:26:00 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,14 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 	temp->wait--;
 	if (temp->wait <= 0)
 	{
-		temp->c_pos = get_pos(temp->c_pos, \
-		execute_operation(temp, cw, operations));
+		if (temp->op != 9)
+			temp->c_pos = get_pos(temp->c_pos, \
+			execute_operation(temp, cw, operations));
+		else
+		{
+			if (!execute_operation(temp, cw, operations))
+				temp->c_pos++;
+		}
 		if (temp->ins)
 		{
 			free(temp->ins);

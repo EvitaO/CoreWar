@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 15:47:10 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/13 16:27:50 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void	add_cur(t_game *cw, t_cursor *new)
 {
 	if (new == NULL)
 		return ;
-	new->next = NULL;
 	new->prev = cw->c;
 	cw->c->next = new;
-	cw->c = cw->c->next;
+	new->next = NULL;
+	cw->c = new;
 }
 
 int			op_fork(t_cursor *c, t_game *cw)

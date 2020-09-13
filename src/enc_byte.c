@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:13:09 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 16:25:13 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ int		encoding_byte(unsigned char data, t_instruction *ins, int *ret)
 	{
 		ins->arg_type[0] = T_DIR;
 		*ret = 1 + g_op_tab[ins->op].label_size;
-		if (ins->op == 9)
-			*ret = 0;
 		return (1);
 	}
 	ins->arg_type[0] = (data >> 6) & 3;

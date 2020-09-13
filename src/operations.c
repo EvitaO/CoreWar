@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/11 15:28:31 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 16:26:52 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int			get_argument(t_game *cw, int size, int pos)
 	ret = *(int*)data;
 	if (size == 2)
 		ret = *(short*)data;
+	if (size == 1)
+		ret = *(char*)data;
 	return (ret);
 }
 
@@ -85,7 +87,7 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 	if (cw->v != NULL)
 		exec_vis(cw, c, "check op-code");
 	if (c->op > 16 || c->op < 1)
-		return (1);
+		return (0);
 	if (cw->v != NULL)
 		exec_vis(cw, c, "check-encoding-byte");
 	t = encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret);

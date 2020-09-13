@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/09 09:46:16 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 16:32:28 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int				zjmp(t_cursor *c, t_game *cw)
 			c->c_pos = c->c_pos + MEM_SIZE;
 	}
 	else
-		c->c_pos = get_pos(c->c_pos, 2);
+		c->c_pos = get_pos(c->c_pos, 1);
 	return (0);
 }
