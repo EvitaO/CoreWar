@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 16:26:52 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/13 20:04:48 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		collect_arguments(t_cursor *c, t_game *cw)
 		mvwprintw(cw->v->score, 22, 0, "arg3 = %d, pos = %d", \
 		c->ins->arg3, pos);
 		wrefresh(cw->v->score);
-		sleep(SPEED);
+		usleep(2);
 	}
 }
 
@@ -73,7 +73,7 @@ void		exec_vis(t_game *cw, t_cursor *c, char *str)
 	{
 		mvwprintw(cw->v->score, 7, 0, str);
 		// v_print_cursor(cw, c, 0);
-		sleep(SPEED);
+		usleep(2);
 	}
 }
 
@@ -87,7 +87,7 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 	if (cw->v != NULL)
 		exec_vis(cw, c, "check op-code");
 	if (c->op > 16 || c->op < 1)
-		return (0);
+		return (1);
 	if (cw->v != NULL)
 		exec_vis(cw, c, "check-encoding-byte");
 	t = encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret);

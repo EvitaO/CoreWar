@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 16:26:00 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/13 20:14:05 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		check(t_game *cw)
 			if (cw->v != NULL)
 			{
 				v_print_cursor(cw, temp, 1);
-				sleep(3);
+				sleep(0);
 			}
 			kill_cursor(cw, &temp);
 		}
@@ -84,10 +84,7 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 			temp->c_pos = get_pos(temp->c_pos, \
 			execute_operation(temp, cw, operations));
 		else
-		{
-			if (!execute_operation(temp, cw, operations))
-				temp->c_pos++;
-		}
+			execute_operation(temp, cw, operations);
 		if (temp->ins)
 		{
 			free(temp->ins);

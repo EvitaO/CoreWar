@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 14:25:12 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/13 20:23:15 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int		main(int argc, char **argv)
 	set_vis(cw, players);
 	winner = game_loop(cw);
 	if (cw->v != NULL)
+	{
+		endwin();
 		free(cw->v);
+	}
 	kill_all_cursors(cw);
 	free(cw);
 	ft_printf("Contestant %i, \"%s\", has won !\n", winner, \
