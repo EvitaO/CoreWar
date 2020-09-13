@@ -6,41 +6,50 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:28:43 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/11 16:08:26 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 15:33:17 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/vm.h"
 
-static void	kill_cursor2(t_game *cw, t_cursor *c)
+static void	kill_cursor2(t_game *cw, t_cursor **c)
 {
-	if (c->prev)
+	t_cursor *tmp;
+
+	tmp = *c;
+	if ((*c)->prev)
 	{
-		c->prev->next = NULL;
-		cw->c = c->prev;
-		if (c->ins)
-			free(c->ins);
-		free(c);
+		(*c)->prev->next = NULL;
+		cw->c = (*c)->prev;
+		*c = (*c)->prev;
+		if (tmp->ins)
+			free(tmp->ins);
+		free(tmp);
 	}
 	else
 	{
-		if (c->ins)
-			free(c->ins);
-		free(c);
+		if (tmp->ins)
+			free(tmp->ins);
+		free(tmp);
 		cw->c = NULL;
+		*c = NULL;
 	}
 }
 
-void		kill_cursor(t_game *cw, t_cursor *c)
+void		kill_cursor(t_game *cw, t_cursor **c)
 {
-	if (c->next)
+	t_cursor	*tmp;
+
+	tmp = *c;
+	if ((*c)->next)
 	{
-		if (c->prev)
-			c->prev->next = c->next;
-		c->next->prev = c->prev;
-		if (c->ins)
-			free(c->ins);
-		free(c);
+		if ((*c)->prev)
+			(*c)->prev->next = (*c)->next;
+		(*c)->next->prev = (*c)->prev;
+		*c = (*c)->next;
+		if (tmp->ins)
+			free(tmp->ins);
+		free(tmp);
 	}
 	else
 		kill_cursor2(cw, c);

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/11 14:38:39 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 15:24:54 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void					free_players(t_player *players);
 **		game loop functions
 */
 int						game_loop(t_game *cw);
-void					kill_cursor(t_game *cw, t_cursor *c);
+void					kill_cursor(t_game *cw, t_cursor **c);
 char					*get_winner(t_player *players, int id);
 void					kill_all_cursors(t_game *cw);
 int						print_dump(t_game *cw);

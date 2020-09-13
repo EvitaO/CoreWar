@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 14:25:35 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/13 15:33:29 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ void		check(t_game *cw)
 				v_print_cursor(cw, temp, 1);
 				sleep(3);
 			}
-			kill_cursor(cw, temp);
+			kill_cursor(cw, &temp);
 		}
-		temp = temp->next;
+		else
+			temp = temp->next;
 	}
 	if (cw->live_cnt >= NBR_LIVE || cw->checks_cnt >= MAX_CHECKS)
 		cw->cycles_to_die -= CYCLE_DELTA;
