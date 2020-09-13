@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/11 17:15:21 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/13 15:47:10 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@
 **	lfork does the same but without % IDX_MOD
 */
 
-static void	add_cur(t_cursor **c, t_cursor *new)
+static void	add_cur(t_game *cw, t_cursor *new)
 {
 	if (new == NULL)
 		return ;
-	while ((*c)->prev)
-		*c = (*c)->prev;
-	new->prev = NULL;
-	new->next = *c;
-	(*c)->prev = new;
-	*c = new;
+	new->next = NULL;
+	new->prev = cw->c;
+	cw->c->next = new;
+	cw->c = cw->c->next;
 }
 
 int			op_fork(t_cursor *c, t_game *cw)
@@ -41,7 +39,7 @@ int			op_fork(t_cursor *c, t_game *cw)
 	new->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
-	add_cur(&cw->c, new);
+	add_cur(cw, new);
 	return (0);
 }
 
@@ -56,6 +54,6 @@ int			lfork(t_cursor *c, t_game *cw)
 	new->c_pos = (c->c_pos + c->ins->arg1) % MEM_SIZE;
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
-	add_cur(&cw->c, new);
+	add_cur(cw, new);
 	return (0);
 }
