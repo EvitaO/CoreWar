@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   fork.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 16:27:50 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/14 14:46:35 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
