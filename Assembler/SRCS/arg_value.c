@@ -6,35 +6,32 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 23:34:29 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:13:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 22:49:01 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/assembler.h"
 
-// static void	check_if_arg_value(char *s, t_data *data)
-// {
-// 	int	i;
+static void	check_if_arg_value(char *s, t_data *data)
+{
+	int	i;
 
-// 	i = 1;
-// 	if (s[0] == ':')
-// 		return ;
-// 	else if (s[0] == 'r' && ft_strchr("123456789", s[1]))
-// 		return ;
-// 	else if (s[0] == '%')
-// 	{
-// 		if (s[i] == '-')
-// 			i++;
-// 		else if (s[i] == ':')
-// 			return ;
-// 		if (s[i] && ft_strchr("1234567890", s[i]))
-// 			return ;
-// 	}
-// 	else if (ft_strchr("1234567890", s[0]))
-// 		return ;
-// 	ft_printf("\n %s \n", s);
-// 	error("No or wrong value at arg", data->op->line_nbr);
-// }
+	i = 1;
+	if (s[0] == ':' || ft_strchr("1234567890", s[0]))
+		return ;
+	else if (s[0] == 'r' && ft_strchr("1234567890", s[1]))
+		return ;
+	else if (s[0] == '%' || s[0] == '-')
+	{
+		if (s[i] == '-')
+			i++;
+		else if (s[i] == ':')
+			return ;
+		if (s[i] && ft_strchr("1234567890", s[i]))
+			return ;
+	}
+	error("No or wrong value at arg", data->op->line_nbr);
+}
 
 static void	check_if_valid_arg(char *s, t_data *data)
 {
@@ -52,6 +49,7 @@ static void	check_if_valid_arg(char *s, t_data *data)
 	}
 	if (tmp[i] && tmp[i] != '\0')
 		error("wrong input at argument", data->op->line_nbr);
+	free(tmp);
 }
 
 void		arg_value(t_data *data, char **line)
@@ -64,7 +62,7 @@ void		arg_value(t_data *data, char **line)
 	{
 		tmp = ft_strtrim(line[j]);
 		check_if_valid_arg(tmp, data);
-	//	check_if_arg_value(tmp, data);
+		check_if_arg_value(tmp, data);
 		if (j > data->op_nbr)
 			error("to many arguments for instruction", data->op->line_nbr);
 		if (tmp[0] == 'r')

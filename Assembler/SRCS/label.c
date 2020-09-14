@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/18 17:46:37 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:15:29 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 23:14:37 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	cut_only_label(char **line, char **label)
 		free(*line);
 		*line = ft_strtrim(tmp);
 		i++;
+		free(tmp);
 	}
 }
 
@@ -68,8 +69,12 @@ char		*check_if_label(char **line, t_data *data)
 	char	**label;
 	char	*tmp;
 
+	tmp = ft_strtrim(*line);
+	if (tmp && tmp[0] == ':')
+		error("Label not exist", data->op->line_nbr);
+	label = ft_strsplit(tmp, ':');
+	free(tmp);
 	tmp = NULL;
-	label = ft_strsplit(*line, ':');
 	if (label[0])
 	{
 		if (ft_strchr(label[0], '%'))

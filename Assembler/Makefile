@@ -6,7 +6,7 @@
 #    By: eutrodri <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/09/05 01:47:23 by eutrodri      #+#    #+#                  #
-#    Updated: 2020/09/14 15:08:02 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/14 21:33:38 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ OBJ = error.o get_instruction_data.o loop_to_start.o split_instr.o add_char.o\
 
 FLAGS = -Wall -Werror -Wextra
 
-HEADER_FILES = includes/assembler.h
+HEADER_FILES = ../includes/assembler.h
 
 LIB = ../Libft/libft.a
-PR = ..libft/ft_printf/libftprintf.a
+PR = ../libft/ft_printf/libftprintf.a
 
 S = $(addprefix srcs/, $(SRCS))
 

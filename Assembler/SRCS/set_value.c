@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 10:15:26 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:15:59 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 22:47:50 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		set_value_reg(t_data *data, char *line, int c)
 	}
 	str[i - 1] = '\0';
 	data->op->argument[c] = ft_atoi(str);
-	if (data->op->argument[c] <= 0 || data->op->argument[c] > 99)
+	if (data->op->argument[c] < 0 || data->op->argument[c] > 99)
 		error("wrong input for t_reg", data->op->line_nbr);
 	free(line);
 }
