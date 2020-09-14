@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   st.c                                               :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 13:43:40 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 12:53:42 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 17:36:29 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		st(t_cursor *c, t_game *cw)
 	int arg;
 
 	arg = c->reg[c->ins->arg1];
-	if (arg != 0)
+	if (arg == 0)
 		c->carry = 0;
 	else
 		c->carry = 1;
