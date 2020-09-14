@@ -6,7 +6,7 @@
 #    By: eutrodri <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/09/05 01:47:23 by eutrodri      #+#    #+#                  #
-#    Updated: 2020/09/14 21:33:38 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/15 00:06:13 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ all: $(NAME)
 $(NAME) : $(LIB) $(O) $(PR)
 	@echo "$(PROCESS) $(COLOR_YELLOW)COMPILING$(COLOR_DEFAULT)"
 	@gcc -o $(NAME) $(O) -I ../includes ../libft/ft_printf/libftprintf.a\
-	 ../libft/libft.a -g -fsanitize=address
+	 ../libft/libft.a
 	@echo "$(PRINT_PLUS) $(COLOR_GREEN)Done$(COLOR_DEFAULT)"
 
 obj/%.o : srcs/%.c
