@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   game_loop.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 20:14:05 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/14 11:11:22 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		check(t_game *cw)
 	cw->checks_cnt++;
 	while (temp)
 	{
-		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die)
+		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || cw->cycles_to_die <= 0)
 		{
 			if (cw->v != NULL)
 			{
@@ -43,8 +43,11 @@ void		check(t_game *cw)
 		else
 			temp = temp->next;
 	}
-	if (cw->live_cnt >= NBR_LIVE || cw->checks_cnt >= MAX_CHECKS)
+	if (cw->live_cnt >= NBR_LIVE || cw->checks_cnt == MAX_CHECKS)
+	{
 		cw->cycles_to_die -= CYCLE_DELTA;
+		cw->checks_cnt = 0;
+	}
 	cw->live_cnt = 0;
 	if (cw->die_cnt < 1)
 		cw->die_cnt = cw->cycles_to_die;
@@ -112,8 +115,10 @@ int			game_loop(t_game *cw)
 		if ((cw->cycles_to_die > 0 && cw->die_cnt == 0) ||\
 			cw->cycles_to_die < 1)
 			check(cw);
-		if (cw->c == NULL || cw->cycles_to_die <= 0)
+		if (cw->c == NULL)
 			return (end_game(cw));
+		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
+			exit(print_dump(cw));
 		temp = cw->c;
 		if (cw->v != NULL)
 			v_print_score(cw);
@@ -122,7 +127,5 @@ int			game_loop(t_game *cw)
 			get_exec_op(cw, operations, temp);
 			temp = temp->prev;
 		}
-		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
-			exit(print_dump(cw));
 	}
 }

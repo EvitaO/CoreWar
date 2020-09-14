@@ -19,7 +19,7 @@ files=./valid/*.cor
 for file in $files
 do
 	output="$(./vm "$file" > ./res)"
-	output="$(./corewar_mac "$file" > ./res2)"
+	output="$(./corewar_linux "$file" > ./res2)"
 	if diff "./res" "./res2" >/dev/null
 	then
 		printf "${GREEN}%-50s	Passed${NC}\n" $(basename $file)
@@ -30,7 +30,7 @@ do
 	while [ $cnt -lt 4000 ]
 	do
 		output="$(./vm -d $cnt "$file" > ./res)"
-		output="$(./corewar_mac -d $cnt "$file" > ./res2)"
+		output="$(./corewar_linux -d $cnt "$file" > ./res2)"
 		if diff "./res" "./res2" >/dev/null
 		then
 			printf "${GREEN}%-50s	Passed${NC}\n" "$(basename $file) with -d $cnt"

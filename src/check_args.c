@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   check_args.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 14:24:30 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/14 10:50:13 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
