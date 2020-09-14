@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:39:26 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:08:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 12:42:00 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int				or(t_cursor *c, t_game *cw)
 	c->reg[c->ins->arg3] = arg1 | arg2;
 	if (c->reg[c->ins->arg3] != 0)
 	{
-		c->carry = 1;
+		c->carry = 0;
 		return (1);
 	}
 	else
-		c->carry = 0;
+		c->carry = 1;
 	return (0);
 }
