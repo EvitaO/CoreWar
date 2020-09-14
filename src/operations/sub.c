@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:30:04 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 14:21:08 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/14 23:22:24 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		sub(t_cursor *c, t_game *cw)
 		return (0);
 	new = c->reg[c->ins->arg1] - c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = new;
-	if (new == 0)
+	if (new != 0)
 	{
 		c->carry = 0;
 		return (1);

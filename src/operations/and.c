@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:32:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 14:20:44 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/14 23:12:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				and(t_cursor *c, t_game *cw)
 	else
 		arg2 = c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = (arg1 & arg2);
-	if (c->reg[c->ins->arg3] == 0)
+	if (c->reg[c->ins->arg3] != 0)
 	{
 		c->carry = 0;
 		return (1);

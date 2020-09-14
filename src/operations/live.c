@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 15:53:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 14:20:46 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/14 22:09:05 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ int		live(t_cursor *c, t_game *cw)
 {
 	cw->live_cnt++;
 	c->live = cw->cycles_cnt;
-	if (c->ins->arg1 == c->reg[1] &&
+	if (c->ins->arg1 == c->reg[1] && \
 		(-(c->ins->arg1) > 0 && -(c->ins->arg1) <= cw->players))
+	{
+		ft_printf("live %i\n", c->ins->arg1);
 		cw->player_l_alive = -(c->ins->arg1);
+	}
 	else
 		return (0);
 	if (cw->v != NULL)

@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:40:19 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 14:21:12 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/14 23:13:55 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int				xor(t_cursor *c, t_game *cw)
 	else
 		arg2 = c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = (arg1 ^ arg2);
-	if (c->reg[c->ins->arg3] == 0)
+	ft_printf("xor %i	%i r%i\n", arg1, arg2, c->ins->arg3);
+	if (c->reg[c->ins->arg3] != 0)
 	{
 		c->carry = 0;
 		return (1);
