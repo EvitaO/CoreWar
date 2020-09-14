@@ -6,11 +6,12 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 13:20:30 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:15:51 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 23:46:28 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/assembler.h"
+
 void	read_op(t_data *data)
 {
 	char	*s;

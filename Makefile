@@ -6,7 +6,7 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/09/14 22:13:40 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/14 23:49:41 by anonymous     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ VM_S = $(addprefix Virtual_Machine/src/, $(VM_SRC))
 
 VM_O = $(addprefix Virtual_Machine/obj/, $(VM_OBJ))
 
-NORM = norminette | grep -e "Error" -e "Warning" -B 1
+NORM = norminette $(ASM_S) $(VM_S) | grep -e "Error" -e "Warning" -B 1
 
 
 all: $(NAME1) $(NAME2)
