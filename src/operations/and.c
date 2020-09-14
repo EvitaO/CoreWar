@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   and.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:32:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 09:17:25 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 14:20:44 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int				and(t_cursor *c, t_game *cw)
 	c->reg[c->ins->arg3] = (arg1 & arg2);
 	if (c->reg[c->ins->arg3] == 0)
 	{
-		c->carry = 1;
+		c->carry = 0;
 		return (1);
 	}
 	else
-		c->carry = 0;
+		c->carry = 1;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/08 17:02:08 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/14 12:54:15 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int		ld(t_cursor *c, t_game *cw)
 	else
 		arg = c->ins->arg1;
 	c->reg[c->ins->arg2] = arg;
-	if (arg)
-		c->carry = 1;
-	else
+	if (arg != 0)
 		c->carry = 0;
+	else
+		c->carry = 1;
 	return (0);
 }
 
