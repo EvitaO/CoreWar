@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:19:29 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 15:27:00 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 		return (ret);
 	if (cw->v != NULL)
 		exec_vis(cw, c, "executing operation");
-	// if (cw->cycles_cnt <= 3000)
-	// 	print_instruction_data(c);	
+	//if (cw->cycles_cnt <= 218 && cw->cycles_cnt >= 217)
+	//print_instruction_data(c);	
 	op[c->ins->op](c, cw);
 	return (ret);
 }

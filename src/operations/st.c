@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 13:43:40 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:17:30 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 15:08:12 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ int		st(t_cursor *c, t_game *cw)
 		pos = get_pos(c->c_pos, c->ins->arg2 % IDX_MOD);
 		write_to_memory(cw, arg, 4, pos);
 	}
-	//ft_printf("st	r%i=%i	%i\n", c->ins->arg1, arg, c->ins->arg2);
 	return (1);
 }
