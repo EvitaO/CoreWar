@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   sub.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:30:04 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 23:10:49 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 14:16:17 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		sub(t_cursor *c, t_game *cw)
 		return (0);
 	new = c->reg[c->ins->arg1] - c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = new;
+	//ft_printf("Sub:	res	%i	r%i	r%i	r%i\n", new, c->ins->arg1, c->ins->arg2, c->ins->arg3);
 	if (new != 0)
 	{
 		c->carry = 0;

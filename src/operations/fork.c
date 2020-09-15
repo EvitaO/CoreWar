@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   fork.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 16:27:50 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/15 13:17:10 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int			op_fork(t_cursor *c, t_game *cw)
 	new->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
+	//ft_printf("fork	%i cur	%i new		cycl	%i\n", c->c_pos, new->c_pos, cw->cycles_cnt);
 	add_cur(cw, new);
 	return (0);
 }
@@ -54,6 +55,7 @@ int			lfork(t_cursor *c, t_game *cw)
 	new->c_pos = (c->c_pos + c->ins->arg1) % MEM_SIZE;
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
+	//ft_printf("Lfork	%i cur	%i new\n", c->c_pos, new->c_pos);
 	add_cur(cw, new);
 	return (0);
 }

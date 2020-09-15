@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 16:36:45 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 14:25:55 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/15 12:02:21 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int				aff(t_cursor *c, t_game *cw)
 		val = c->reg[c->ins->arg1] % 256;
 		if (cw->flag.aflag == 1)
 			ft_printf("Aff:	%c\n", (char)val);
+		//else
+			//ft_printf("aff is off\n");
 	}
 	return (0);
 }

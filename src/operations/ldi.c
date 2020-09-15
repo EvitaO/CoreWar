@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ldi.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 12:29:38 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 14:17:13 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,12 @@ int		lldi(t_cursor *c, t_game *cw)
 	if (c->ins->arg_type[0] == T_REG)
 		c->ins->arg1 = c->reg[c->ins->arg1];
 	else if (c->ins->arg_type[0] == T_IND)
-	{
-		c->ins->arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1));
-		address = c->c_pos + (c->ins->arg1 % IDX_MOD);
-	}
+		c->ins->arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1 % IDX_MOD));
 	if (c->ins->arg_type[1] == T_REG)
 		c->ins->arg2 = c->reg[c->ins->arg2];
-	if (c->ins->arg_type[0] != T_IND)
-		address = c->c_pos + c->ins->arg1 + c->ins->arg2;
+	address = get_pos(c->c_pos, c->ins->arg1 + c->ins->arg2 - 1);
 	c->reg[c->ins->arg3] = get_argument(cw, 4, address);
+//ft_printf("lldi:	arg1 %i\t\targ2	%i	r%i		addres=%i\n", c->ins->arg1, c->ins->arg2, c->ins->arg3, address);
 	if (c->reg[c->ins->arg3] == 0)
 		c->carry = 1;
 	else

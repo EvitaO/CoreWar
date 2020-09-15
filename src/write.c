@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   write.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:02:41 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 16:28:52 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/14 15:14:35 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

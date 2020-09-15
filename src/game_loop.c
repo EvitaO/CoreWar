@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   game_loop.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 23:07:46 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 14:19:16 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,14 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 	if (temp->wait <= 0 && temp->op >= 1 && temp->op <= 16)
 	{
 		if (temp->op != 9)
+		{
 			temp->c_pos = get_pos(temp->c_pos, \
 			execute_operation(temp, cw, operations));
+		}
 		else
+		{
 			execute_operation(temp, cw, operations);
+		}
 		if (temp->ins)
 		{
 			free(temp->ins);
