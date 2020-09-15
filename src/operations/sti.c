@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 15:51:08 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 13:18:42 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 17:28:52 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				sti(t_cursor *c, t_game *cw)
 	else if (c->ins->arg_type[1] == T_IND)
 	{
 		//ft_printf("sti IND:\t r%i=%i  %i, pos = %i\n", c->ins->arg2, dst);
-		c->ins->arg2 = get_argument(cw, 4, get_pos(c->c_pos, (c->ins->arg2 % IDX_MOD)));
+		c->ins->arg2 = get_argument(cw, 4, get_pos(c->c_pos, (c->ins->arg2 % IDX_MOD)) - 1);
 	}
 	if (c->ins->arg_type[2] == T_REG)
 		c->ins->arg3 = c->reg[c->ins->arg3];

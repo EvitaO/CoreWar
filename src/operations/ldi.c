@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:17:13 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 17:25:55 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ldi(t_cursor *c, t_game *cw)
 
 	if (c->ins->arg_type[0] == T_IND)
 	{
-		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD);
+		pos = get_pos(c->c_pos, c->ins->arg1 % IDX_MOD) - 1;
 		arg1 = get_argument(cw, 4, pos);
 	}
 	else if (c->ins->arg_type[0] == T_DIR)
