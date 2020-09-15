@@ -1,0 +1,18 @@
+16 tests failed out of 173 total tests.
+Failed tests:
+    ./test.sh -c 54,55 "0E D4 97 FD 01 0C 03 70 0C 00 00 00 00 D3 80 C8 EB"
+    ./test.sh -c 64,65 "02 90 FF FF 7E 2A 10 03 70 10 FE 01 0E E4 FF F6 7F D2 07 03 70 07"
+    ./test.sh -c 49,50 "0A 94 FF FC 09 06 09 00 06 03 70 01"
+    ./test.sh -c 54,55 "02 D0 00 64 05 0A 64 08 FF FF 07 09 00 04 0C 03 70 01"
+    ./test.sh "$inf_loop" "01 FF FF FF FF $inf_loop"
+    ./test.sh "01 FF FF FF FF 01 FF FF FF FE 01 FF FF FF FD 01 FF FF FF FC $inf_loop" "$inf_loop"
+    ./test.sh -c 1535,1536 "02 90 00 00 00 31 02 04 54 03 02 03 06 64 03 00 00 08 00 04 09 FF F3 04 54 03 03 03 10 40 03 10 40 03 03 70 01" "02 D0 00 64 10 01 00 00 00 00 09 FF FB"
+    ./test.sh -c 1521,1522,1541 "02 90 00 00 00 31 02 04 54 03 02 03 06 64 03 00 00 08 00 04 09 FF F3 03 70 02 00 00 10 40 02 10 40 02 01 FF FF FF FF 03 70 01" "02 D0 00 64 10 01 00 00 00 00 09 FF FB"
+    ./test.sh "00 00 02 D0 00 40 10 01 FF FF FF FF 09 FF FB" "00 00 00 02 D0 00 40 10 01 FF FF FF FE 09 FF FB" "00 00 00 00 02 D0 00 40 10 01 FF FF FF FD 09 FF FB" "00 00 00 00 00 02 D0 00 40 10 01 FF FF FF FC 09 FF FB"
+    ./test.sh -c 4,5 "03 70 02 01 FF" "03 70 01 FE 01" "03 70 01 01 FF" "03 70 01 FE 01"
+    ./test.sh -c 4,5 "03 70 02 FE 01" "03 70 01 01 FF" "03 70 01 FE 01" "03 70 01 01 FF"
+    ./test.sh -c 6,7 "10 AA 00 00 00 00 03 70 01"
+    ./test.sh -c 6,7 "10 E8 00 00 03 70 01"
+    ./test.sh -c 25902 champions/helltrain.cor champions/fluttershy.cor
+    ./test.sh -c 25902 champions/fluttershy.cor champions/toto.cor champions/leapfrog.cor
+    ./test.sh -c 10000 champions/le_pet_de_nonne.cor champions/Car.cor champions/helltrain.cor
