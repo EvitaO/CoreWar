@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 17:49:27 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 18:53:08 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ int		lld(t_cursor *c, t_game *cw)
 
 	if (c->ins->arg_type[0] == T_IND)
 	{
-		pos = get_pos(c->c_pos, c->ins->arg1);
-		arg = get_argument(cw, 4, pos);
+		pos = get_pos(c->c_pos, c->ins->arg1 - 1);
+		arg = get_argument(cw, 2, pos);
 	}
 	else
 		arg = c->ins->arg1;
 	c->reg[c->ins->arg2] = arg;
-	//ft_printf("lld	%i	r%i		cycle %i\n", arg, c->ins->arg2, cw->cycles_cnt);
 	if (arg == 0)
 		c->carry = 1;
 	else
