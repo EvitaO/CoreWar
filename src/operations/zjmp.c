@@ -6,11 +6,8 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2020/09/15 11:41:41 by anonymous     ########   odam.nl         */
-=======
+/*   Updated: 2020/09/15 14:02:05 by eovertoo      ########   odam.nl         */
 /*   Updated: 2020/09/15 12:37:52 by eovertoo      ########   odam.nl         */
->>>>>>> c9d963fa37892b600f8245df3f68881ed6a05fb6
 /*                                                                            */
 /* ************************************************************************** */
 
