@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 15:24:54 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/15 11:25:11 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,6 @@ int						xor(t_cursor *c, t_game *cw);
 */
 void					print_game_data(t_game *data);
 void					print_cursor_data(t_game *data);
-void					print_instruction_data(t_instruction ins);
+void					print_instruction_data(t_cursor *c);
 
 #endif

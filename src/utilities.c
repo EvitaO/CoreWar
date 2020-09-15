@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/10 13:49:56 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 12:12:26 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,41 @@ void	print_cursor_data(t_game *data)
 	}
 }
 
-void	print_instruction_data(t_instruction ins)
+void	print_instruction_data(t_cursor *c)
 {
-	ft_printf("Executing: %i -> %s\n", ins.op, g_op_tab[ins.op].name);
-	ft_printf("arg1_type = %i, arg1 = %i\n", ins.arg_type[0], ins.arg1);
-	ft_printf("arg2_type = %i, arg2 = %i\n", ins.arg_type[1], ins.arg2);
-	ft_printf("arg3_type = %i, arg3 = %i\n", ins.arg_type[2], ins.arg3);
-	sleep(2);
+	t_instruction ins;
+
+	ins = *(c->ins);
+	ft_printf("P(%i) 1 | ", c->carry);
+	ft_printf("%s ", g_op_tab[ins.op].name);
+	if (ins.arg_type[0] == T_REG)
+		ft_printf("r");
+	if (ins.arg_type[0])
+		ft_printf("%i ", ins.arg1);
+	if (ins.arg_type[0] == T_REG)
+		ft_printf("(%i) ", c->reg[c->ins->arg1]);
+	if (ins.arg_type[1] == T_REG)
+		ft_printf("r");
+	if (ins.arg_type[1])
+		ft_printf("%i ", ins.arg2);
+	if (ins.arg_type[1] == T_REG)
+		ft_printf("(%i) ", c->reg[c->ins->arg2]);
+	if (ins.arg_type[2] == T_REG)
+		ft_printf("r");
+	if (ins.arg_type[2])
+		ft_printf("%i ", ins.arg3);
+	if (ins.arg_type[2] == T_REG)
+		ft_printf("(%i) ", c->reg[c->ins->arg3]); 
+	if (ins.op == 9)
+	{
+		if (c->carry == 1)
+			ft_printf("OK");
+		else
+			ft_printf("FAILED");
+	}
+	if (ins.op == 11 || ins.op == 14)
+		ft_putendl("");
+	ft_putendl("");
 }
 
 char	*get_winner(t_player *players, int id)

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 20:14:05 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/14 23:07:46 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 		get_operation(temp, cw);
 	}
 	temp->wait--;
-	if (temp->wait <= 0)
+	if (temp->wait <= 0 && temp->op >= 1 && temp->op <= 16)
 	{
 		if (temp->op != 9)
 			temp->c_pos = get_pos(temp->c_pos, \
@@ -95,6 +95,11 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
 			wrefresh(cw->v->win);
 		}
+		temp->op = -1;
+	}
+	else if (temp->wait <= 0)
+	{
+		temp->c_pos++;
 		temp->op = -1;
 	}
 }
