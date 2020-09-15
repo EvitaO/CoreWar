@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/15 20:08:44 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 22:51:45 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void			set_registries(t_cursor *cursor)
 void			set_cursors(t_cursor *cursors, t_player *players)
 {
 	while (players->next)
-		players = players->next;
-	while (players->prev)
 	{
 		cursors->c_pos = players->cursor;
 		cursors->id = players->id;
@@ -48,7 +46,7 @@ void			set_cursors(t_cursor *cursors, t_player *players)
 		cursors->p_pos = -1;
 		cursors->reg[1] = -(players->id);
 		add_cursor(&cursors);
-		players = players->prev;
+		players = players->next;
 	}
 	cursors->reg[1] = -(players->id);
 	cursors->c_pos = players->cursor;
