@@ -6,7 +6,11 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
+<<<<<<< HEAD
 /*   Updated: 2020/09/15 11:41:41 by anonymous     ########   odam.nl         */
+=======
+/*   Updated: 2020/09/15 12:37:52 by eovertoo      ########   odam.nl         */
+>>>>>>> c9d963fa37892b600f8245df3f68881ed6a05fb6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +27,6 @@ int				zjmp(t_cursor *c, t_game *cw)
 	(void)cw;
 	if (c->carry == 1)
 	{
-		//ft_printf("arg is %i\n", c->ins->arg_type[0]);
 		//ft_printf("jumps from %i ", c->c_pos);
 		c->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
 		while (c->c_pos < 0)
