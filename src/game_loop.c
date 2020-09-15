@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:19:16 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 20:19:29 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int			game_loop(t_game *cw)
 	while (1)
 	{
 		cw->cycles_cnt++;
-		cw->die_cnt--;
 		if ((cw->cycles_to_die > 0 && cw->die_cnt == 0) ||\
 			cw->cycles_to_die < 1)
 			check(cw);
@@ -129,9 +128,10 @@ int			game_loop(t_game *cw)
 		while (temp)
 		{
 			get_exec_op(cw, operations, temp);
-			temp = temp->prev;
+			temp = temp->next;
 		}
 		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
 			exit(print_dump(cw));
+		cw->die_cnt--;
 	}
 }
