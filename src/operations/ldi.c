@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:58:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:07:03 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/15 12:41:06 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ldi(t_cursor *c, t_game *cw)
 	else
 		arg2 = c->ins->arg2;
 	c->reg[c->ins->arg3] = get_argument(cw, 4, \
-	get_pos(c->c_pos, (arg1 + arg2) % IDX_MOD));
+	get_pos(c->c_pos, (arg1 + arg2) % IDX_MOD - 1));
 	// if (c->reg[c->ins->arg3])
 	// 	c->carry = 1;
 	// else
