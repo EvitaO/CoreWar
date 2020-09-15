@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = vm
+NAME = corewar
 
 SRC =  main.c utils_nflag.c check_args.c itoa_base.c reading.c intro.c\
 		str_rev_by_2.c game_setup.c game_set_par.c set_cursors.c free.c count.c\
