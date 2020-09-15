@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 16:02:14 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 23:13:13 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 11:42:32 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ld(t_cursor *c, t_game *cw)
 	else
 		arg = c->ins->arg1;
 	c->reg[c->ins->arg2] = arg;
-	ft_printf("ld	%i	r%i\n", arg, c->ins->arg2);
+	//ft_printf("ld	%i	r%i		cycle	%i\n", arg, c->ins->arg2, cw->cycles_cnt);
 	if (arg != 0)
 		c->carry = 0;
 	else
@@ -46,6 +46,7 @@ int		lld(t_cursor *c, t_game *cw)
 	else
 		arg = c->ins->arg1;
 	c->reg[c->ins->arg2] = arg;
+	//ft_printf("lld	%i	r%i		cycle %i\n", arg, c->ins->arg2, cw->cycles_cnt);
 	if (arg == 0)
 		c->carry = 1;
 	else

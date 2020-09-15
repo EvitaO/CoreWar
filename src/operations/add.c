@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:27:16 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 23:12:32 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 12:02:15 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		add(t_cursor *c, t_game *cw)
 		return (0);
 	new = c->reg[c->ins->arg1] + c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = new;
-	ft_printf("add:	r%i	r%i	r%i\n", c->ins->arg1, c->ins->arg2, c->ins->arg3);
+	//ft_printf("add:	r%i	r%i	r%i		cycle	%i\n", c->ins->arg1, c->ins->arg2, c->ins->arg3, cw->cycles_cnt);
 	if (new != 0)
 	{
 		c->carry = 0;

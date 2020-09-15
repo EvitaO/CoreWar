@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/28 15:51:08 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 22:38:29 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 11:41:59 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				sti(t_cursor *c, t_game *cw)
 {
 	int			dst;
 
-	ft_printf("r%i ", c->ins->arg1);
+	//ft_printf("r%i ", c->ins->arg1);
 	c->ins->arg1 = c->reg[c->ins->arg1];
 	dst = 0;
 	if (c->ins->arg_type[1] == T_REG)
@@ -44,7 +44,7 @@ int				sti(t_cursor *c, t_game *cw)
 	// 	dst = dst + MEM_SIZE;
 	// if (dst > 700)
 	// {
-	ft_printf(" = %i, arg2 = %i, arg3 = %i,\tpos = %i\n", c->ins->arg1, c->ins->arg2, c->ins->arg3, dst);
+	//ft_printf(" = %i, arg2 = %i, arg3 = %i,\tpos = %i\n", c->ins->arg1, c->ins->arg2, c->ins->arg3, dst);
 	// 	ft_printf("sti:\t arg2 = %i, pos = %i\n", c->ins->arg2, dst);
 	// 	ft_printf("sti:\t arg3 = %i, pos = %i\n", c->ins->arg3, dst);
 	// }
