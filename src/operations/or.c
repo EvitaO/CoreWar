@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:39:26 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:17:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 16:45:47 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int				or(t_cursor *c, t_game *cw)
 	int arg2;
 
 	if (c->ins->arg_type[0] == T_IND)
-		arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1 % IDX_MOD));
+		arg1 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg1 % IDX_MOD) - 1);
 	else if (c->ins->arg_type[0] == T_DIR)
 		arg1 = c->ins->arg1;
 	else
 		arg1 = c->reg[c->ins->arg1];
 	if (c->ins->arg_type[1] == T_IND)
-		arg2 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg2 % IDX_MOD));
+		arg2 = get_argument(cw, 4, get_pos(c->c_pos, c->ins->arg2 % IDX_MOD) - 1);
 	else if (c->ins->arg_type[1] == T_DIR)
 		arg2 = c->ins->arg2;
 	else
