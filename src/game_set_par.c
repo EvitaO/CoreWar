@@ -6,7 +6,7 @@
 /*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 15:04:22 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/08 14:47:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 22:35:34 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_game			*game_set_par(t_player *players)
 	game_setup(players, game_data);
 	cursors = (t_cursor *)ft_memalloc(sizeof(t_cursor));
 	set_cursors(cursors, players);
+	//while (cursors->prev)
+	//	cursors = cursors->prev;
 	game_data->c = cursors;
 	return (game_data);
 }

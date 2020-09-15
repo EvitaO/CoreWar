@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 20:06:58 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 22:33:26 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		get_pos(int position, int distance)
 
 	new_pos = position + distance;
 	while (new_pos < 0)
-		new_pos = (MEM_SIZE + new_pos);
+		new_pos += MEM_SIZE;
 	return (new_pos % MEM_SIZE);
 }
 
