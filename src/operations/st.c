@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 13:43:40 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 15:08:12 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/15 17:34:10 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ int		st(t_cursor *c, t_game *cw)
 	int arg;
 
 	arg = c->reg[c->ins->arg1];
-	if (arg != 0)
-		c->carry = 0;
-	else
-		c->carry = 1;
 	if (c->ins->arg_type[1] == T_REG)
 	{
 		c->reg[c->ins->arg2] = arg;
