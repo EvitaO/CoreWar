@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   reading.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 19:42:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:29:47 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:50:13 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   operations.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:29:35 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:49:45 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 		return (ret);
 	if (cw->v != NULL)
 		exec_vis(cw, c, "executing operation");
+	//if (cw->cycles_cnt <= 218 && cw->cycles_cnt >= 217)
+	// print_instruction_data(c);
+	// ft_printf("\t\t%i\n", cw->cycles_cnt);
 	op[c->ins->op](c, cw);
 	return (ret);
 }

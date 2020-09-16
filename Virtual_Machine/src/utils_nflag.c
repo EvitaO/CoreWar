@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   utils_nflag.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 17:00:24 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:30:25 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:50:48 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

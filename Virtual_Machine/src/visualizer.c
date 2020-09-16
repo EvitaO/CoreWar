@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   visualizer.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 02:51:19 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:30:41 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:50:59 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

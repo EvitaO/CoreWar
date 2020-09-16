@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   game_loop.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:28:44 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:48:50 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		check(t_game *cw)
 	cw->checks_cnt++;
 	while (temp)
 	{
-		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die)
+		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || cw->cycles_to_die < 1)
 		{
 			if (cw->v != NULL)
 			{
@@ -43,8 +43,16 @@ void		check(t_game *cw)
 		else
 			temp = temp->next;
 	}
-	if (cw->live_cnt >= NBR_LIVE || cw->checks_cnt >= MAX_CHECKS)
+	if (cw->live_cnt >= NBR_LIVE)
+	{
 		cw->cycles_to_die -= CYCLE_DELTA;
+		cw->checks_cnt = 0;
+	}
+	else if (cw->checks_cnt >= MAX_CHECKS)
+	{
+		cw->cycles_to_die -= CYCLE_DELTA;
+		cw->checks_cnt = 0;
+	}
 	cw->live_cnt = 0;
 	if (cw->die_cnt < 1)
 		cw->die_cnt = cw->cycles_to_die;
@@ -78,13 +86,17 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 		get_operation(temp, cw);
 	}
 	temp->wait--;
-	if (temp->wait <= 0)
+	if (temp->wait <= 0 && temp->op >= 1 && temp->op <= 16)
 	{
 		if (temp->op != 9)
+		{
 			temp->c_pos = get_pos(temp->c_pos, \
 			execute_operation(temp, cw, operations));
+		}
 		else
+		{
 			execute_operation(temp, cw, operations);
+		}
 		if (temp->ins)
 		{
 			free(temp->ins);
@@ -93,9 +105,22 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 		if (cw->v != NULL)
 		{
 			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
+			v_print_pixel(cw, temp->c_pos, 5);
+			usleep(80000);
 			wrefresh(cw->v->win);
 		}
 		temp->op = -1;
+	}
+	else if (temp->wait <= 0)
+	{
+		temp->c_pos = (temp->c_pos + 1) % MEM_SIZE;
+		temp->op = -1;
+		if (cw->v != NULL)
+		{
+			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
+			v_print_pixel(cw, temp->c_pos, 1);
+			wrefresh(cw->v->win);
+		}
 	}
 }
 
@@ -108,11 +133,10 @@ int			game_loop(t_game *cw)
 	while (1)
 	{
 		cw->cycles_cnt++;
-		cw->die_cnt--;
-		if ((cw->cycles_to_die > 0 && cw->die_cnt == 0) ||\
-			cw->cycles_to_die < 1)
+		if (cw->die_cnt == 0 || cw->cycles_to_die < 1)
 			check(cw);
-		if (cw->c == NULL || cw->cycles_to_die <= 0)
+		cw->die_cnt--;
+		if (cw->c == NULL)
 			return (end_game(cw));
 		temp = cw->c;
 		if (cw->v != NULL)
@@ -120,7 +144,7 @@ int			game_loop(t_game *cw)
 		while (temp)
 		{
 			get_exec_op(cw, operations, temp);
-			temp = temp->prev;
+			temp = temp->next;
 		}
 		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
 			exit(print_dump(cw));

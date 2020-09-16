@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   set_cursors.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eovertoo <eovertoo@student.codam.nl>         +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 16:09:38 by eovertoo      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:29:53 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:50:20 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

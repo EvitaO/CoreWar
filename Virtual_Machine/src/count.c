@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   count.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 09:38:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:28:19 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:48:26 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

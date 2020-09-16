@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   fork.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:41:19 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 17:47:00 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static void	add_cur(t_game *cw, t_cursor *new)
 {
 	if (new == NULL)
 		return ;
-	new->prev = cw->c;
-	cw->c->next = new;
-	new->next = NULL;
+	new->next = cw->c;
+	cw->c->prev = new;
+	new->prev = NULL;
 	cw->c = new;
 }
 
@@ -36,9 +36,11 @@ int			op_fork(t_cursor *c, t_game *cw)
 	new = (t_cursor*)ft_memcpy(new, c, sizeof(t_cursor));
 	new->ins = NULL;
 	new->op = -1;
-	new->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
+	new->c_pos = c->c_pos + (c->ins->arg1 % IDX_MOD);
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
+	new->c_pos = new->c_pos % MEM_SIZE;
+	//ft_printf("fork	%i cur	%i new		cycl	%i\n", c->c_pos, new->c_pos, cw->cycles_cnt);
 	add_cur(cw, new);
 	return (0);
 }
@@ -51,9 +53,11 @@ int			lfork(t_cursor *c, t_game *cw)
 	new = (t_cursor*)ft_memcpy(new, c, sizeof(t_cursor));
 	new->ins = NULL;
 	new->op = -1;
-	new->c_pos = (c->c_pos + c->ins->arg1) % MEM_SIZE;
+	new->c_pos = c->c_pos + c->ins->arg1;
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
+	new->c_pos = new->c_pos % MEM_SIZE;
+	//ft_printf("Lfork	%i cur	%i new\n", c->c_pos, new->c_pos);
 	add_cur(cw, new);
 	return (0);
 }
