@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:48:21 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:09:18 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	add_node(t_player **players, int *pl)
 	if (*pl > 1)
 	{
 		(*players)->next = (t_player*)ft_memalloc(sizeof(t_player));
-		(*players)->next->data = (header_t*)ft_memalloc(sizeof(header_t));
+		(*players)->next->data = (t_header*)ft_memalloc(sizeof(t_header));
 		(*players)->next->prev = *players;
 		*players = (*players)->next;
 		(*pl)--;
