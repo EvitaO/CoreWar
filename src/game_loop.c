@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 20:19:29 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 12:18:01 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		check(t_game *cw)
 	cw->checks_cnt++;
 	while (temp)
 	{
-		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die)
+		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || cw->cycles_to_die < 1)
 		{
 			if (cw->v != NULL)
 			{
@@ -43,8 +43,16 @@ void		check(t_game *cw)
 		else
 			temp = temp->next;
 	}
-	if (cw->live_cnt >= NBR_LIVE || cw->checks_cnt >= MAX_CHECKS)
+	if (cw->live_cnt >= NBR_LIVE)
+	{
 		cw->cycles_to_die -= CYCLE_DELTA;
+		cw->checks_cnt = 0;
+	}
+	else if (cw->checks_cnt >= MAX_CHECKS)
+	{
+		cw->cycles_to_die -= CYCLE_DELTA;
+		cw->checks_cnt = 0;
+	}
 	cw->live_cnt = 0;
 	if (cw->die_cnt < 1)
 		cw->die_cnt = cw->cycles_to_die;
@@ -117,10 +125,10 @@ int			game_loop(t_game *cw)
 	while (1)
 	{
 		cw->cycles_cnt++;
-		if ((cw->cycles_to_die > 0 && cw->die_cnt == 0) ||\
-			cw->cycles_to_die < 1)
+		if (cw->die_cnt == 0 || cw->cycles_to_die < 1)
 			check(cw);
-		if (cw->c == NULL || cw->cycles_to_die <= 0)
+		cw->die_cnt--;
+		if (cw->c == NULL)
 			return (end_game(cw));
 		temp = cw->c;
 		if (cw->v != NULL)
@@ -132,6 +140,5 @@ int			game_loop(t_game *cw)
 		}
 		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
 			exit(print_dump(cw));
-		cw->die_cnt--;
 	}
 }
