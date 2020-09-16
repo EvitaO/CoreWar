@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/18 17:46:37 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 23:14:37 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 23:42:21 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		check_label(char *s)
 		if (ft_strchr(LABEL_CHARS, s[i]))
 			i++;
 		else
-			error("label_chars are incorrect", 0);
+			error("Incorrect label character", 0);
 	}
 }
 

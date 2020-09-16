@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/31 17:14:21 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:16:20 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 23:23:35 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	split_inst(char *line)
 	nbr = instructions(inst[0]);
 	free_array_str(&inst, &line, 2);
 	if (nbr > 0)
-		error("instruction at last line does not end with a \\n", 0);
+		error("File does not end with a newline", 0);
 	error(\
 	"instruction does not exist and does not end with a \\n at last line", 0);
 	return (nbr);

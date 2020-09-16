@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:57:53 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/14 15:16:26 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 23:46:27 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		read_multipule_lines(char **s, t_data *data)
 			comment_after_quote(&quote, s, data);
 		if (ft_strstr(*s, NAME_CMD_STRING) ||\
 		ft_strstr(*s, COMMENT_CMD_STRING) || ret <= 0)
-			error("missing end quote", data->line - 1);
+			error("Missing end quote", data->line - 1);
 		str = add_newline(&str);
 		if (ft_strlen(*s) > 0)
 			join_str(&tmp, &str, s);
@@ -72,7 +72,7 @@ void		store_name(char *s, t_data *data)
 	quote = counting_quote(s);
 	array = ft_strsplit(s, '"');
 	if (quote <= 0)
-		error("No quotes", data->line);
+		error("Missing quotes", data->line);
 	if (array[1])
 		s = ft_strdup(array[1]);
 	else
@@ -94,7 +94,7 @@ void		store_commend(char *s, t_data *data)
 	quote = counting_quote(s);
 	array = ft_strsplit(s, '"');
 	if (quote <= 0)
-		error("No quotes", data->line);
+		error("Missing quotes", data->line);
 	if (array[1])
 		s = ft_strdup(array[1]);
 	else
