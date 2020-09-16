@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 19:47:45 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 22:03:57 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ t_flag		check_args(char **argv, int argc, t_player *players)
 	int			i;
 	t_flag		flag;
 
-	flag.aflag = 0;
-	flag.dump_flag = 0;
-	flag.mod = 0;
+	set_to_nul(&flag);
 	pl = count_args(argv, argc);
 	i = 1;
 	while (i < argc)

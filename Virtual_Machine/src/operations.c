@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 19:00:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 21:56:39 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 	collect_arguments(c, cw);
 	if (!check_registries(*(c->ins)))
 		return (ret);
+	if (cw->flag.vflag == 1)
+		print_instruction_data(c);
 	op[c->ins->op](c, cw);
 	return (ret);
 }

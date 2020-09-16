@@ -6,16 +6,26 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 19:31:43 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 22:03:15 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/vm.h"
 
+void		set_to_nul(t_flag *flag)
+{
+	flag->aflag = 0;
+	flag->dump_flag = 0;
+	flag->mod = 0;
+	flag->vflag = 0;
+}
+
 int			check_flags(char **arg, t_flag *flags, int *i)
 {
 	if (ft_strcmp(arg[*i], "-a") == 0)
 		flags->aflag = 1;
+	else if (ft_strcmp(arg[*i], "-v") == 0)
+		flags->vflag = 1;
 	else if (ft_strcmp(arg[*i], "-dump") == 0 || ft_strcmp(arg[*i], "-d") == 0)
 	{
 		if (ft_strcmp(arg[*i], "-dump") == 0)

@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 19:20:07 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 22:01:03 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,12 @@ int		get_pos(int position, int distance)
 	return (new_pos % MEM_SIZE);
 }
 
-void	print_game_data(t_game *data)
-{
-	ft_printf("---GAME DATA---\n");
-	ft_printf("Player last alive: %i\n", data->player_l_alive);
-	ft_printf("Cycles count:\t   %i\n", data->cycles_count);
-	ft_printf("Live count:\t   %i\n", data->live_count);
-	ft_printf("Cycles to die:\t   %i\n", data->cycles_to_die);
-	ft_printf("Die countdown:\t   %i\n", data->die_count);
-	ft_printf("Checks count:\t   %i\n", data->check_count);
-	print_cursor_data(data);
-}
-
-void	print_cursor_data(t_game *data)
-{
-	t_cursor *temp;
-
-	temp = data->c;
-	ft_printf("---CURSOR DATA---\n");
-	while (temp)
-	{
-		ft_printf("id:%i, pos:%i, live:%i, op:%i, wait:%i\n", \
-		temp->id, temp->pos, temp->live, temp->op, temp->wait);
-		temp = temp->next;
-	}
-}
-
 void	print_instruction_data(t_cursor *c)
 {
 	t_instruction ins;
 
 	ins = *(c->ins);
-	ft_printf("cursor%5i | ", c->pos, c->id);
+	ft_printf("cursor%5i | ", c->pos);
 	ft_printf("%s ", g_op_tab[ins.op].name);
 	if (ins.arg_type[0] == T_REG)
 		ft_printf("r");
@@ -74,6 +48,7 @@ void	print_instruction_data(t_cursor *c)
 		else
 			ft_printf("FAILED");
 	}
+	ft_printf("\n");
 }
 
 char	*get_winner(t_player *players, int id)

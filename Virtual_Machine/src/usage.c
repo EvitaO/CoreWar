@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 17:03:53 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:50:35 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 22:08:36 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void		usage(void)
 	line, then exits\n");
 	ft_printf("			-a	: Prints output from 'aff', default is to hide \
 	it\n");
-	ft_printf("			-v	: Works with visualizer\n");
+	ft_printf("			-v	: Verbose mode\n");
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:19:42 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 22:03:35 by eovertoo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char					*str_rev_by_2(char *str);
 int						count_args(char **argv, int argc);
 void					usage(void);
 int						check_flags(char **arg, t_flag *flags, int *i);
+void					set_to_nul(t_flag *flag);
 
 /*
 **      process n_flag
@@ -106,10 +107,8 @@ int						or(t_cursor *c, t_game *cw);
 int						xor(t_cursor *c, t_game *cw);
 
 /*
-**		debug functions
+**		vflag function
 */
-void					print_game_data(t_game *data);
-void					print_cursor_data(t_game *data);
 void					print_instruction_data(t_cursor *c);
 
 #endif
