@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 15:55:07 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:15:57 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 12:54:51 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int				zjmp(t_cursor *c, t_game *cw)
 	if (c->carry == 1)
 	{
 		//ft_printf("jumps from %i ", c->c_pos);
-		c->c_pos = (c->c_pos + (c->ins->arg1 % IDX_MOD)) % MEM_SIZE;
+		c->c_pos = c->c_pos + (c->ins->arg1 % IDX_MOD);
 		while (c->c_pos < 0)
 			c->c_pos = c->c_pos + MEM_SIZE;
+		c->c_pos = c->c_pos % MEM_SIZE;
 		//ft_printf("to %i\n", c->c_pos);
 	}
 	else
