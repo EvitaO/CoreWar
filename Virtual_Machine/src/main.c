@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:49:21 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:01:30 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int argc, char **argv)
 	t_flag		flag;
 
 	players = (t_player*)ft_memalloc(sizeof(t_player));
-	players->data = (header_t*)ft_memalloc(sizeof(header_t));
+	players->data = (t_header*)ft_memalloc(sizeof(t_header));
 	if (argc < 2 || ft_strcmp(argv[1], "-u") == 0)
 		usage();
 	flag = check_args(argv, argc, players);

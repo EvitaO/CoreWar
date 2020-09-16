@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   vm_visualizer.h                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 11:42:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 17:33:29 by mvan-hou      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:00:02 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
