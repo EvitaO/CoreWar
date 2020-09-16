@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:04:49 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:19:42 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "op.h"
 # include "../libft/includes/libft.h"
 # include "vm_structs.h"
-# include "vm_visualizer.h"
 # include <fcntl.h>
 
 /*

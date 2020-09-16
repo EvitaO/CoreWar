@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:02:41 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:51:17 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:19:00 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	write_to_memory(t_game *cw, int arg, int size, int pos)
 	while (i < size)
 	{
 		cw->arena[w_pos] = (arg >> shift) & mask;
-		if (cw->v != NULL)
-			v_print_pixel(cw, w_pos, 4);
 		shift -= 8;
 		i++;
 		w_pos = get_pos(w_pos, 1);

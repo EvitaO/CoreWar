@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:49:45 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:18:39 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,35 +46,6 @@ void		collect_arguments(t_cursor *c, t_game *cw)
 	pos = get_pos(pos, size_of_arg(*(c->ins), 1));
 	c->ins->arg3 = get_argument(cw, size_of_arg(*(c->ins), 2), pos);
 	pos = get_pos(pos, size_of_arg(*(c->ins), 2));
-	if (cw->v != NULL)
-	{
-		mvwprintw(cw->v->score, 20, 0, "arg1 = %d, pos = %d", \
-		c->ins->arg1, pos);
-		mvwprintw(cw->v->score, 21, 0, "arg2 = %d, pos = %d", \
-		c->ins->arg2, pos);
-		mvwprintw(cw->v->score, 22, 0, "arg3 = %d, pos = %d", \
-		c->ins->arg3, pos);
-		wrefresh(cw->v->score);
-		usleep(2);
-	}
-}
-
-void		exec_vis(t_game *cw, t_cursor *c, char *str)
-{
-	if (!c)
-	if (ft_strcmp(str, "check op-code") == 0)
-	{
-		wclear(cw->v->score);
-		mvwprintw(cw->v->score, 7, 0, "check op-code");
-		v_print_score(cw);
-		// v_print_cursor(cw, c, 0);
-	}
-	if (cw->v != NULL)
-	{
-		mvwprintw(cw->v->score, 7, 0, str);
-		// v_print_cursor(cw, c, 0);
-		usleep(2);
-	}
 }
 
 int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
@@ -84,27 +55,14 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 
 	ret = 1;
 	t = 0;
-	if (cw->v != NULL)
-		exec_vis(cw, c, "check op-code");
 	if (c->op > 16 || c->op < 1)
 		return (1);
-	if (cw->v != NULL)
-		exec_vis(cw, c, "check-encoding-byte");
 	t = encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret);
-	if (cw->v != NULL)
-		exec_vis(cw, c, "check-encoding-byte2");
 	if (!t)
 		return (ret);
-	if (cw->v != NULL)
-		exec_vis(cw, c, "getting arguments");
 	collect_arguments(c, cw);
 	if (!check_registries(*(c->ins)))
 		return (ret);
-	if (cw->v != NULL)
-		exec_vis(cw, c, "executing operation");
-	//if (cw->cycles_cnt <= 218 && cw->cycles_cnt >= 217)
-	// print_instruction_data(c);
-	// ft_printf("\t\t%i\n", cw->cycles_cnt);
 	op[c->ins->op](c, cw);
 	return (ret);
 }

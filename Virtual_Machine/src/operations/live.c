@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 15:53:15 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:47:27 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:21:51 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,5 @@ int		live(t_cursor *c, t_game *cw)
 	}
 	else
 		return (0);
-	if (cw->v != NULL)
-		wclear(cw->v->score);
 	return (1);
 }

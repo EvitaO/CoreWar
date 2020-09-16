@@ -6,22 +6,11 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 22:15:00 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:01:30 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:17:58 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/vm.h"
-
-void	set_vis(t_game *cw, t_player *players)
-{
-	if (cw->flag.vflag == 1)
-	{
-		cw->v = v_start_visualizer();
-		v_print_arena(cw, players);
-	}
-	else
-		cw->v = NULL;
-}
 
 int		main(int argc, char **argv)
 {
@@ -39,13 +28,7 @@ int		main(int argc, char **argv)
 	intro_players(players);
 	cw = game_set_par(players);
 	cw->flag = flag;
-	set_vis(cw, players);
 	winner = game_loop(cw);
-	if (cw->v != NULL)
-	{
-		endwin();
-		free(cw->v);
-	}
 	kill_all_cursors(cw);
 	free(cw);
 	ft_printf("Contestant %i, \"%s\", has won !\n", winner, \

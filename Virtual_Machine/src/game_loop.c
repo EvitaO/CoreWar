@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:48:50 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:17:14 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ void		check(t_game *cw)
 	{
 		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || cw->cycles_to_die < 1)
 		{
-			if (cw->v != NULL)
-			{
-				v_print_cursor(cw, temp, 1);
-				sleep(0);
-			}
 			kill_cursor(cw, &temp);
 		}
 		else
@@ -102,25 +97,12 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 			free(temp->ins);
 			temp->ins = NULL;
 		}
-		if (cw->v != NULL)
-		{
-			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
-			v_print_pixel(cw, temp->c_pos, 5);
-			usleep(80000);
-			wrefresh(cw->v->win);
-		}
 		temp->op = -1;
 	}
 	else if (temp->wait <= 0)
 	{
 		temp->c_pos = (temp->c_pos + 1) % MEM_SIZE;
 		temp->op = -1;
-		if (cw->v != NULL)
-		{
-			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
-			v_print_pixel(cw, temp->c_pos, 1);
-			wrefresh(cw->v->win);
-		}
 	}
 }
 
@@ -139,8 +121,6 @@ int			game_loop(t_game *cw)
 		if (cw->c == NULL)
 			return (end_game(cw));
 		temp = cw->c;
-		if (cw->v != NULL)
-			v_print_score(cw);
 		while (temp)
 		{
 			get_exec_op(cw, operations, temp);
