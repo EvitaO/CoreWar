@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 13:32:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/14 15:38:55 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 19:09:56 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 typedef struct			s_flag
 {
 	int					aflag;
-	int					vflag;
 	int					dump_flag;
 	int					mod;
 }						t_flag;
@@ -52,25 +51,23 @@ extern t_op				g_op_tab[17];
 typedef struct			s_game
 {
 	int					player_l_alive;
-	int					cycles_cnt;
-	int					live_cnt;
+	int					cycles_count;
+	int					live_count;
 	int					cycles_to_die;
-	int					die_cnt;
-	int					checks_cnt;
+	int					die_count;
+	int					check_count;
 	int					players;
 	t_flag				flag;
 	unsigned char		arena[MEM_SIZE + 1];
 	struct s_op			op_tab[16];
 	struct s_cursor		*c;
-	struct s_visual		*v;
 }						t_game;
 
 typedef struct			s_cursor
 {
 	int					id;
 	int					carry;
-	int					c_pos;
-	int					p_pos;
+	int					pos;
 	int					op;
 	int					live;
 	int					wait;

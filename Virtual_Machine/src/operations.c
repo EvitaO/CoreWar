@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/04 15:32:57 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:18:39 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 19:00:57 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		collect_arguments(t_cursor *c, t_game *cw)
 {
 	int	pos;
 
-	pos = get_pos(c->c_pos, g_op_tab[c->ins->op].octet);
+	pos = get_pos(c->pos, g_op_tab[c->ins->op].octet);
 	c->ins->arg1 = get_argument(cw, size_of_arg(*(c->ins), 0), pos);
 	pos = get_pos(pos, size_of_arg(*(c->ins), 0));
 	c->ins->arg2 = get_argument(cw, size_of_arg(*(c->ins), 1), pos);
@@ -57,7 +57,7 @@ int			execute_operation(t_cursor *c, t_game *cw, t_ops op)
 	t = 0;
 	if (c->op > 16 || c->op < 1)
 		return (1);
-	t = encoding_byte(cw->arena[get_pos(c->c_pos, 1)], c->ins, &ret);
+	t = encoding_byte(cw->arena[get_pos(c->pos, 1)], c->ins, &ret);
 	if (!t)
 		return (ret);
 	collect_arguments(c, cw);
@@ -71,13 +71,13 @@ void		get_operation(t_cursor *c, t_game *cw)
 {
 	t_instruction	*ins;
 
-	c->op = cw->arena[c->c_pos];
+	c->op = cw->arena[c->pos];
 	if (c->op > 16 || c->op < 1)
 		c->wait = 0;
 	else
 	{
 		ins = new_instruction();
-		ins->op = cw->arena[c->c_pos];
+		ins->op = cw->arena[c->pos];
 		c->ins = ins;
 		c->wait = g_op_tab[ins->op].cycles;
 	}

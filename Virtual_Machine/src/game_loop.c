@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:37:03 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 19:11:59 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,28 @@ void		check(t_game *cw)
 	t_cursor	*temp;
 
 	temp = cw->c;
-	cw->checks_cnt++;
+	cw->check_count++;
 	while (temp)
 	{
-		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || \
+		if (temp->live <= cw->cycles_count - cw->cycles_to_die || \
 		cw->cycles_to_die < 1)
 			kill_cursor(cw, &temp);
 		else
 			temp = temp->next;
 	}
-	if (cw->live_cnt >= NBR_LIVE)
+	if (cw->live_count >= NBR_LIVE)
 	{
 		cw->cycles_to_die -= CYCLE_DELTA;
-		cw->checks_cnt = 0;
+		cw->check_count = 0;
 	}
-	else if (cw->checks_cnt >= MAX_CHECKS)
+	else if (cw->check_count >= MAX_CHECKS)
 	{
 		cw->cycles_to_die -= CYCLE_DELTA;
-		cw->checks_cnt = 0;
+		cw->check_count = 0;
 	}
-	cw->live_cnt = 0;
-	if (cw->die_cnt < 1)
-		cw->die_cnt = cw->cycles_to_die;
+	cw->live_count = 0;
+	if (cw->die_count < 1)
+		cw->die_count = cw->cycles_to_die;
 }
 
 void		initialize_operations(t_ops *ops)
@@ -75,16 +75,13 @@ void		initialize_operations(t_ops *ops)
 void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 {
 	if (temp->op == -1)
-	{
-		temp->p_pos = temp->c_pos;
 		get_operation(temp, cw);
-	}
 	temp->wait--;
 	if (temp->wait <= 0 && temp->op >= 1 && temp->op <= 16)
 	{
 		if (temp->op != 9)
 		{
-			temp->c_pos = get_pos(temp->c_pos, \
+			temp->pos = get_pos(temp->pos, \
 			execute_operation(temp, cw, operations));
 		}
 		else
@@ -98,7 +95,7 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 	}
 	else if (temp->wait <= 0)
 	{
-		temp->c_pos = (temp->c_pos + 1) % MEM_SIZE;
+		temp->pos = (temp->pos + 1) % MEM_SIZE;
 		temp->op = -1;
 	}
 }
@@ -111,10 +108,10 @@ int			game_loop(t_game *cw)
 	initialize_operations(&operations);
 	while (1)
 	{
-		cw->cycles_cnt++;
-		if (cw->die_cnt == 0 || cw->cycles_to_die < 1)
+		cw->cycles_count++;
+		if (cw->die_count == 0 || cw->cycles_to_die < 1)
 			check(cw);
-		cw->die_cnt--;
+		cw->die_count--;
 		if (cw->c == NULL)
 			return (end_game(cw));
 		temp = cw->c;
@@ -123,7 +120,7 @@ int			game_loop(t_game *cw)
 			get_exec_op(cw, operations, temp);
 			temp = temp->next;
 		}
-		if (cw->flag.dump_flag > 0 && cw->cycles_cnt == cw->flag.dump_flag)
+		if (cw->flag.dump_flag > 0 && cw->cycles_count == cw->flag.dump_flag)
 			exit(print_dump(cw));
 	}
 }

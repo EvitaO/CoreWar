@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/01 19:30:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:09:18 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 19:47:45 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	give_id(t_player *players, int plr)
 	}
 }
 
-static void	check_nflag(t_player *players, char *arg)
+static void	check_nflag(t_player *players, char *arg, int *i)
 {
 	if (ft_isdigit(arg[0]) == 1)
 	{
@@ -50,6 +50,7 @@ static void	check_nflag(t_player *players, char *arg)
 	}
 	else
 		exit(ft_printf("incorrect nflag format\n"));
+	*i += 1;
 }
 
 static int	str_ending(char *str, char *ending)
@@ -71,7 +72,6 @@ t_flag		check_args(char **argv, int argc, t_player *players)
 	t_flag		flag;
 
 	flag.aflag = 0;
-	flag.vflag = 0;
 	flag.dump_flag = 0;
 	flag.mod = 0;
 	pl = count_args(argv, argc);
@@ -79,10 +79,7 @@ t_flag		check_args(char **argv, int argc, t_player *players)
 	while (i < argc)
 	{
 		if (!ft_strcmp(argv[i], "-n"))
-		{
-			check_nflag(players, argv[i + 1]);
-			i++;
-		}
+			check_nflag(players, argv[i + 1], &i);
 		else if (str_ending(argv[i], ".cor") == 0)
 		{
 			players->arg_n = i;
