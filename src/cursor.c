@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
 /*   cursor.c                                           :+:    :+:            */
@@ -20,7 +20,7 @@ static void	kill_cursor2(t_game *cw, t_cursor **c)
 	if ((*c)->prev)
 	{
 		(*c)->prev->next = NULL;
-		cw->c = (*c)->prev;
+		//cw->c = (*c)->prev;
 		*c = (*c)->prev;
 		if (tmp->ins)
 			free(tmp->ins);
@@ -46,6 +46,8 @@ void		kill_cursor(t_game *cw, t_cursor **c)
 		if ((*c)->prev)
 			(*c)->prev->next = (*c)->next;
 		(*c)->next->prev = (*c)->prev;
+		if (!(*c)->prev)
+			cw->c =(*c)->next;
 		*c = (*c)->next;
 		if (tmp->ins)
 			free(tmp->ins);
