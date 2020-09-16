@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 10:55:23 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 22:03:15 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/16 22:42:37 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int			check_flags(char **arg, t_flag *flags, int *i)
 		if (arg[*i + 1] && ft_isdigit(arg[*i + 1][0]) == 1)
 		{
 			flags->dump_flag = ft_atoi2(arg[*i + 1]);
-			if (flags->dump_flag <= 0)
-				exit(ft_printf("Error number has to be higher then 0\n"));
+			if (flags->dump_flag < 0)
+				flags->dump_flag = 0;
 			(*i)++;
 		}
 		else
-			exit(ft_printf("not a valid use of '%s' flag\n", arg[*i]));
+			exit_vm(3, arg[*i]);
 	}
 	else
 		return (-1);

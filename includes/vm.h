@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/30 09:40:03 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 22:03:35 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/16 22:41:51 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int						count_args(char **argv, int argc);
 void					usage(void);
 int						check_flags(char **arg, t_flag *flags, int *i);
 void					set_to_nul(t_flag *flag);
+void					exit_vm(int code, char *str);
 
 /*
 **      process n_flag

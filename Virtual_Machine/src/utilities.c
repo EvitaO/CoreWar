@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 22:01:03 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/16 22:43:36 by mvan-hou      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,33 @@ char	*get_winner(t_player *players, int id)
 		temp = temp->next;
 	}
 	return (NULL);
+}
+
+void	exit_vm(int code, char *str)
+{
+	if (code == 1)
+		ft_printf("Error: Incorrect -n flag format\n");
+	else if (code == 2)
+		ft_printf("Error: '%s' is not a valid option or .cor file\n", str);
+	else if (code == 3)
+		ft_printf("Error: Invalid use of '%s' flag\n", str);
+	else if (code == 4)
+		ft_printf("Error: Duplicate -n flag\n");
+	else if (code == 5)
+		ft_printf("Error: Can't read file '%s'\n", str);
+	else if (code == 6)
+		ft_printf("Error: Invalid magic header\n");
+	else if (code == 7)
+		ft_printf("Error: Program name is too short\n");
+	else if (code == 8)
+		ft_printf("Error: Invalid null bytes\n");
+	else if (code == 9)
+		ft_printf("Error: Can't read code size\n");
+	else if (code == 10)
+		ft_printf("Error: Comment name is too short\n");
+	else if (code == 11)
+		ft_printf("Error: Champion code exceeds maximum size\n");
+	else
+		usage();
+	exit(code);
 }
