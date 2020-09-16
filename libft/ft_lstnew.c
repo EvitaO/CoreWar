@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/03 15:43:51 by eutrodri      #+#    #+#                 */
-/*   Updated: 2019/06/03 15:45:12 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 21:27:51 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*list;
 
-	if (!(list = (t_list *)malloc(sizeof(*list))))
+	list = (t_list *)malloc(sizeof(*list));
+	if (!(list))
 		return (NULL);
 	if (!content)
 	{
@@ -25,7 +26,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(list->content = malloc(content_size)))
+		list->content = malloc(content_size);
+		if (!(list->content))
 			return (NULL);
 		ft_memcpy(list->content, content, content_size);
 		list->content_size = content_size;

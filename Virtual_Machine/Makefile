@@ -6,7 +6,7 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/09/16 18:19:35 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/16 21:38:49 by eutrodri      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,16 +47,16 @@ all: $(NAME)
 $(NAME)	: $(LIB) $(O) $(PR)
 	@echo "\x1B[36mCompiling... \x1B[0m"
 	@gcc -o $(NAME) $(O) -I ../includes ../libft/ft_printf/libftprintf.a \
-	../libft/libft.a -lncurses
+	../libft/libft.a
 
 obj/%.o :  src/%.c
 	@$(O_P)
 	@gcc $(FLAGS) -c -o $@ $< -I includes
-	
+
 obj/%.o : src/operations/%.c
 	@$(O_P)
 	@gcc $(FLAGS) -c -o $@ $< -I includes
-	
+
 $(LIB) :
 	@make -C libft/
 

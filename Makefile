@@ -6,11 +6,11 @@
 #    By: eovertoo <eovertoo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/08/02 17:11:36 by eovertoo      #+#    #+#                  #
-#    Updated: 2020/09/16 18:20:31 by anonymous     ########   odam.nl          #
+#    Updated: 2020/09/16 21:42:15 by eutrodri      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME1 = asm
+NAME = asm
 
 ASM_SRCS = error.c get_instruction_data.c loop_to_start.c split_instr.c \
 		add_char.c asm.c check_file.c instruction.c label.c store_data.c \
@@ -66,25 +66,25 @@ VM_O = $(addprefix Virtual_Machine/obj/, $(VM_OBJ))
 NORM = norminette $(ASM_S) $(VM_S) | grep -e "Error" -e "Warning" -B 1
 
 
-all: $(NAME1) $(NAME2)
+all: $(ASM_O) $(VM_O) $(NAME) $(NAME2) 
 
-$(NAME1)	: $(LIB) $(ASM_O) $(PR)
+$(NAME)	: $(LIB) $(ASM_O) $(PR)
 	@echo "\x1B[36mCompiling Assembler... \x1B[0m"
 	@make -C Assembler/
 	@ mv Assembler/asm .
 
 Assembler/obj/%.o : Assembler/srcs/%.c
 	@make -C Assembler/
+	@ mv Assembler/asm .
 
-
-$(NAME2)	: $(LIB) $(VM_O) $(PR)
+$(NAME2)	: $(LIB)  $(PR)
 	@echo "\x1B[36mCompiling CoreWar... \x1B[0m"
 	@make -C Virtual_Machine/
 	@ mv Virtual_Machine/corewar .
 
 Virtual_Machine/obj/%.o : Virtual_Machine/src/%.c
 	@make -C Virtual_Machine/
-
+	@ mv Virtual_Machine/corewar .
 
 $(LIB) :
 	@make -C libft/

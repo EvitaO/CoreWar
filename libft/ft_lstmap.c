@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/03 15:55:29 by eutrodri      #+#    #+#                 */
-/*   Updated: 2019/06/03 15:55:48 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 21:28:52 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	while (lst->next)
 	{
 		lst = lst->next;
-		if (!(list->next = f(lst)))
+		list->next = f(lst);
+		if (!(list->next))
 		{
 			free(list->next);
 			return (NULL);
