@@ -1,12 +1,12 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
 /*   cursor.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:28:43 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/13 15:47:33 by eovertoo      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:35:22 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	kill_cursor2(t_game *cw, t_cursor **c)
 	if ((*c)->prev)
 	{
 		(*c)->prev->next = NULL;
-		//cw->c = (*c)->prev;
 		*c = (*c)->prev;
 		if (tmp->ins)
 			free(tmp->ins);
@@ -47,7 +46,7 @@ void		kill_cursor(t_game *cw, t_cursor **c)
 			(*c)->prev->next = (*c)->next;
 		(*c)->next->prev = (*c)->prev;
 		if (!(*c)->prev)
-			cw->c =(*c)->next;
+			cw->c = (*c)->next;
 		*c = (*c)->next;
 		if (tmp->ins)
 			free(tmp->ins);

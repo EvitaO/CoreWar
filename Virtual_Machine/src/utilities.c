@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:50:42 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:32:27 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	print_instruction_data(t_cursor *c)
 	if (ins.arg_type[2])
 		ft_printf("%i ", ins.arg3);
 	if (ins.arg_type[2] == T_REG)
-		ft_printf("(%i) ", c->reg[c->ins->arg3]); 
+		ft_printf("(%i) ", c->reg[c->ins->arg3]);
 	if (ins.op == 9)
 	{
 		if (c->carry == 1)

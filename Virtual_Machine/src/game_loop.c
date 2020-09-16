@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 18:17:14 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 18:37:03 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ void		check(t_game *cw)
 	cw->checks_cnt++;
 	while (temp)
 	{
-		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || cw->cycles_to_die < 1)
-		{
+		if (temp->live <= cw->cycles_cnt - cw->cycles_to_die || \
+		cw->cycles_to_die < 1)
 			kill_cursor(cw, &temp);
-		}
 		else
 			temp = temp->next;
 	}
@@ -89,9 +88,7 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 			execute_operation(temp, cw, operations));
 		}
 		else
-		{
 			execute_operation(temp, cw, operations);
-		}
 		if (temp->ins)
 		{
 			free(temp->ins);

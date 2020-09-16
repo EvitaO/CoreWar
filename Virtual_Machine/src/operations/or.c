@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 14:39:26 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:47:34 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:28:26 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int				or(t_cursor *c, t_game *cw)
 	else
 		arg2 = c->reg[c->ins->arg2];
 	c->reg[c->ins->arg3] = (arg1 | arg2);
-	//ft_printf("or:	arg1 %i=%i\t\targ2	%i=%i	r%i\n", arg1, c->ins->arg1, arg2, c->ins->arg2, c->ins->arg3);
 	if (c->reg[c->ins->arg3] != 0)
 	{
 		c->carry = 0;

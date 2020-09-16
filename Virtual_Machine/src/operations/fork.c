@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 16:16:02 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 17:47:00 by eutrodri      ########   odam.nl         */
+/*   Updated: 2020/09/16 18:31:42 by eutrodri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			op_fork(t_cursor *c, t_game *cw)
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
 	new->c_pos = new->c_pos % MEM_SIZE;
-	//ft_printf("fork	%i cur	%i new		cycl	%i\n", c->c_pos, new->c_pos, cw->cycles_cnt);
 	add_cur(cw, new);
 	return (0);
 }
@@ -57,7 +56,6 @@ int			lfork(t_cursor *c, t_game *cw)
 	while (new->c_pos < 0)
 		new->c_pos = new->c_pos + MEM_SIZE;
 	new->c_pos = new->c_pos % MEM_SIZE;
-	//ft_printf("Lfork	%i cur	%i new\n", c->c_pos, new->c_pos);
 	add_cur(cw, new);
 	return (0);
 }
