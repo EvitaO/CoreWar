@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/25 11:19:50 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 14:19:22 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 12:17:44 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,12 @@ int		get_size(t_instruction ins)
 	int ret;
 
 	ret = 2;
-	ret += size_of_arg(ins, 0);
-	ret += size_of_arg(ins, 1);
-	ret += size_of_arg(ins, 2);
+	if (g_op_tab[ins.op].arg_type[0])
+		ret += size_of_arg(ins, 0);
+	if (g_op_tab[ins.op].arg_type[1])
+		ret += size_of_arg(ins, 1);
+	if (g_op_tab[ins.op].arg_type[2])
+		ret += size_of_arg(ins, 2);
 	return (ret);
 }
 

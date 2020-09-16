@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 11:19:01 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/15 22:33:26 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 12:08:32 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	print_instruction_data(t_cursor *c)
 	t_instruction ins;
 
 	ins = *(c->ins);
-	ft_printf("P(%i) %i | ", c->carry, c->id);
+	ft_printf("P(%i) %i | ", c->c_pos, c->id);
 	ft_printf("%s ", g_op_tab[ins.op].name);
 	if (ins.arg_type[0] == T_REG)
 		ft_printf("r");
@@ -82,7 +82,6 @@ void	print_instruction_data(t_cursor *c)
 	}
 	if (ins.op == 11 || ins.op == 14)
 		ft_putendl("");
-	ft_putendl("");
 }
 
 char	*get_winner(t_player *players, int id)
