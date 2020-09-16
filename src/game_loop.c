@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/14 11:20:20 by anonymous     #+#    #+#                 */
-/*   Updated: 2020/09/16 12:18:01 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/16 16:38:28 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,22 @@ void		get_exec_op(t_game *cw, t_ops operations, t_cursor *temp)
 		if (cw->v != NULL)
 		{
 			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
+			v_print_pixel(cw, temp->c_pos, 5);
+			usleep(80000);
 			wrefresh(cw->v->win);
 		}
 		temp->op = -1;
 	}
 	else if (temp->wait <= 0)
 	{
-		temp->c_pos++;
+		temp->c_pos = (temp->c_pos + 1) % MEM_SIZE;
 		temp->op = -1;
+		if (cw->v != NULL)
+		{
+			wmove(cw->v->win, temp->c_pos / WIDTH, temp->c_pos % WIDTH);
+			v_print_pixel(cw, temp->c_pos, 1);
+			wrefresh(cw->v->win);
+		}
 	}
 }
 
