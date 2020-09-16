@@ -6,7 +6,7 @@
 /*   By: eutrodri <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/30 23:34:29 by eutrodri      #+#    #+#                 */
-/*   Updated: 2020/09/16 23:39:26 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/09/17 00:10:29 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	check_if_valid_arg(char *s, t_data *data)
 			break ;
 	}
 	if (tmp[i] && tmp[i] != '\0')
-		error("Invalid argument", data->op->line_nbr);
+		error("Invalid input", data->op->line_nbr);
 	free(tmp);
 }
 
